@@ -11,7 +11,7 @@ function Navigation({ navItems }) {
           <img src="/hamburger.svg"/>
         </button>
       </header>
-      <div className={isOpen ? "Menu Menu--open" : "Menu"} onMouseLeave={() => toggleOpen(false)}>
+      <div className={isOpen ? "Menu Menu--open" : "Menu"}>
         {navItems.map(category => (
           <div className="Menu__category">
             <h3>{category.title}</h3>
