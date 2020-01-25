@@ -76,19 +76,26 @@ header {
     flex-direction: column;
     padding: 0 25px;
 
-    > h3 {
-      color: $color-light-purple;
-      font-weight: 800;
-      font-size: 1.3rem;
-      margin: 10px 0;
-      cursor: pointer;
-
-      &:hover {
-        text-decoration: underline;
+    > a {
+      text-decoration: none;
+      
+      > h3 {
+        color: $color-light-purple;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1.3rem;
+        margin: 10px 0;
+        cursor: pointer;
+        
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
-    > .Menu__site {
+    .Menu__site {
+      color: #000;
+      text-decoration: none;
       font-size: 1.15rem;
       line-height: 1.7;
       @media (min-width: 670px), (min-screen-width: 670px) {

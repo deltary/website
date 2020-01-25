@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
+$color-purple: #873a9e;
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+  box-sizing: border-box;
+}
+
+.Page {
+  min-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  hyphens: auto;
+  max-width: 100%;
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  
+  &__title {
+    font-size: 2.1rem;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  > .Content {
+    font-family: 'Rubik', sans-serif;
+
+    h1,h2,h3,h4,h5 {
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      width: 100%;
+    }
+
+    > p {
+      font-size: 1rem;
+      text-align: left;
+      margin-bottom: 22px;
+
+      > span {
+        display: inline-block;
+      }
+    }
+
+    a {
+      font-weight: 800;
+      color: #000;
+    }
+  } 
+}
+
+.alignright {
+  display: block;
+  float: right;
+  margin-left: 20px;
+}
