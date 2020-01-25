@@ -1,0 +1,24 @@
+{
+  "name": "deltary-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export"
+  },
+  "keywords": [],
+  "author": "Konsta Purtsi",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^9.1.4",
+    "node-fetch": "^2.6.0",
+    "node-sass": "^4.13.1",
+    "ramda": "^0.26.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "wpapi": "^1.2.1"
+  }
+}

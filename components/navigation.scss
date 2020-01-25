@@ -1,0 +1,89 @@
+$purple: rgb(30, 12, 101);
+$color-purple: #873a9e;
+$color-light-purple: #6d366f;
+
+header {
+  background-color: $color-purple;
+  height: 60px;
+  display: flex;
+  padding: 0 20px;
+  justify-content: center;
+  z-index: 3;
+  position: sticky;
+  top: 0;
+
+  > button {
+    background: none;
+    border: none;
+    padding: 0;
+    outline: inherit;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: auto;
+
+    > img {
+      height: 45px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.Menu {
+  height: 0;
+  z-index: 3;
+  overflow-y: hidden;
+  position: sticky;
+  top: 60px;
+  background-color: #fff;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
+  box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (min-width: 670px), (min-screen-width: 670px) {
+    max-height: 700px;
+  }
+
+  @media (min-width: 1000px), (min-screen-width: 1000px) {
+    max-height: 450px;
+  }
+  
+  &--open {
+    height: 100%;
+    padding: 0 0 30px;
+  }
+
+  &__category {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+
+    > h3 {
+      color: $color-light-purple;
+      font-weight: 800;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    > .Menu__site {
+      font-size: 1.3rem;
+      line-height: 1.5;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
