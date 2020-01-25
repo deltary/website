@@ -72,9 +72,6 @@ const getPage = async (req) => {
     return __NEXT_DATA__.props.pageProps;
   }
 
-  const { category, page } = req.query;
-  const slug = page || category;
-
   const res = await fetch(apiUrl + 'wp/v2/pages?per_page=100');
 
   if (res.status !== 200) {
@@ -84,7 +81,7 @@ const getPage = async (req) => {
   const pages = await res.json();
 
   // TODO: this really should mind the category
-  const matchedPage = pages.find(page => page.slug === slug);
+  const matchedPage = pages.find(page => page.link.includes(req.asPath));
   
   return {
     title: matchedPage.title.rendered,

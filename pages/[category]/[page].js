@@ -26,6 +26,8 @@ HomePage.getInitialProps = async (req) => {
     return __NEXT_DATA__.props.pageProps;
   }
 
+  console.log(req)
+
   return {
     navItems: await getNavigationItems(req),
     page: await getPage(req)
