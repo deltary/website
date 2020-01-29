@@ -1,19 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Rubik&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 $color-purple: #873a9e;
+$color-overalls: #6427a7;
+$color-dark-purple: #6d366f;
+$color-pink: #f999ff;
 
 body {
   padding: 0;
   margin: 0;
+  background-color: $color-purple;
   font-family: 'Karla', sans-serif;
   box-sizing: border-box;
+  color: white;
 }
 
 .Page {
   min-height: calc(100vh - 60px);
   box-sizing: border-box;
-  hyphens: auto;
   max-width: 100%;
   width: 900px;
   margin: 0 auto;
@@ -23,11 +26,11 @@ body {
     font-size: 2.1rem;
     text-align: center;
     margin: 10px;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Karla', sans-serif;
   }
   
   > .Content {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Karla', sans-serif;
 
     h1,h2,h3,h4,h5 {
       text-align: left;
@@ -42,19 +45,52 @@ body {
       width: 100%;
     }
 
+    strong {
+      color: $color-pink;
+    }
+
     > p {
       font-size: 1rem;
       text-align: left;
       margin-bottom: 22px;
+      line-height: 1.5;
 
       > span {
         display: inline-block;
       }
+
+      > span + span {
+        display: block;
+      }
     }
 
     a {
-      font-weight: 800;
-      color: #000;
+      color: white;
+      text-decoration: none;
+      border-bottom: 2px solid $color-pink;
+
+      &:hover {
+        color: $color-pink;
+      }
+    }
+
+    hr {
+      width: 100%;
+      border: none;
+      height: 3px;
+      margin-bottom: 3em;
+      /* Set the hr color */
+      color: $color-pink; /* old IE */
+      background-color: $color-pink; /* Modern Browsers */
+    }
+
+    img {
+      @media (max-width: 670px), (max-screen-width: 670px) {
+        max-width: 160px;
+        height: auto;
+      }
+      border-radius: 6px;
+      margin-bottom: 16px;
     }
   } 
 }
