@@ -13,10 +13,10 @@ const HomePage = ({ navItems, page }) => {
         <title>Delta ry</title>
       </Head>
       <Navigation navItems={navItems}/>
-      <div className="Page">
+      <article className="Page">
         <h1 className="Page__title">{title}</h1>
         <div className="Content" dangerouslySetInnerHTML={{__html: content}}></div>
-      </div>
+      </article>
     </>
   );
 }
