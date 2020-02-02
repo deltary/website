@@ -47,6 +47,7 @@ body {
 
     strong {
       color: $color-pink;
+      font-weight: 700;
     }
 
     > p {
@@ -91,6 +92,10 @@ body {
       }
       border-radius: 6px;
       margin-bottom: 16px;
+
+      -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
+      -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
+      box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
     }
   } 
 }

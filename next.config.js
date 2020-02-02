@@ -2,9 +2,12 @@ const withSass = require('@zeit/next-sass');
 const fetch = require('node-fetch');
 const webpack = require('webpack');
 
-const isProd = (process.env.NODE_ENV || 'production') === 'production'
-
-const assetPrefix = isProd ? '/website' : ''
+const assetPrefix = {
+  'dev': '',
+  'test': '/website',
+  'staging': '/new',
+  'production': ''
+}[process.env.NODE_ENV];
 
 module.exports = withSass({
   exportPathMap: async () => {

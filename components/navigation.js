@@ -54,5 +54,4 @@ const LogoLink = ({ logo }) => (
   </Link>
 );
 
-
 export default Navigation;
