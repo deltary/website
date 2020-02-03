@@ -1,0 +1,42 @@
+$footer-height: 85px;
+$color-pink: #f999ff;
+$color-purple: #873a9e;
+$color-light-purple: #6d366f;
+
+footer {
+  display: flex;
+  min-height: $footer-height;
+  width: 100%;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+  > ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    > li {
+      padding: 0.5em;
+      width: 165px;
+    }
+  }
+
+  a {
+    color: $color-purple;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $color-pink;
+    }
+
+    > svg {
+      margin: 0 0.5em;
+    }
+  }
+}

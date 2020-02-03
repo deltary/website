@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Navigation from '../components/navigation';
-import { getNavigationItems } from '../wordpress';
+import Footer from '../components/footer';
+import { getNavigationItems } from '../lib/wordpress';
 
 import "./index.scss";
 
@@ -22,6 +23,7 @@ const HomePage = ({ navItems }) => {
       <div className="LandingPage">
         Tähän sitten sitä sisältöä, kuvia ja muuta.
       </div>
+      <Footer />
     </>
   );
 }

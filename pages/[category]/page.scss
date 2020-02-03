@@ -4,6 +4,8 @@ $color-purple: #873a9e;
 $color-overalls: #6427a7;
 $color-dark-purple: #6d366f;
 $color-pink: #f999ff;
+$header-height: 60px;
+$footer-height: 85px;
 
 body {
   padding: 0;
@@ -14,8 +16,13 @@ body {
   color: white;
 }
 
+.Main {
+  background-color: $color-purple;
+  
+}
+
 .Page {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
   box-sizing: border-box;
   max-width: 100%;
   width: 900px;
@@ -45,7 +52,7 @@ body {
       width: 100%;
     }
 
-    strong {
+    strong, b {
       color: $color-pink;
       font-weight: 700;
     }
