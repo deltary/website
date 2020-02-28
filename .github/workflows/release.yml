@@ -20,9 +20,10 @@ jobs:
     - run: touch out/.nojekyll
 
     - name: Archive production artifacts
+      if: github.event.action == 'repository_dispatch'
       uses: actions/upload-artifact@v1
       with:
-        name: out
+        name: out-${{ github.event.client_payload.buildtime }}
         path: out
 
     - name: GitHub Pages Deploy
