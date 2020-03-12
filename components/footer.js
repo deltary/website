@@ -3,7 +3,6 @@ import { FaEnvelope, FaFacebookSquare, FaInstagram, FaAddressCard } from 'react-
 import Link from 'next/link'
 
 import { asPageLink } from '../lib/linkUtils';
-import "./footer.scss";
 
 function Footer() {
   return (

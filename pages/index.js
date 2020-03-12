@@ -3,8 +3,6 @@ import Navigation from '../components/navigation';
 import Footer from '../components/footer';
 import { getNavigationItems } from '../lib/wordpress';
 
-import "./index.scss";
-
 const HomePage = ({ navItems }) => {
   return (
     <>

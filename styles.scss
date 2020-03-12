@@ -1,0 +1,7 @@
+/* page styles */ 
+@import 'pages/index.scss';
+@import 'pages/[category]/page.scss';
+
+/* component styles */
+@import 'components/navigation.scss';
+@import 'components/footer.scss';

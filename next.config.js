@@ -1,4 +1,3 @@
-const withSass = require('@zeit/next-sass');
 const fetch = require('node-fetch');
 const webpack = require('webpack');
 
@@ -9,7 +8,7 @@ const assetPrefix = {
   'production': ''
 }[process.env.NODE_ENV];
 
-module.exports = withSass({
+module.exports = {
   exportPathMap: async () => {
     // fetch list of pages
     const response = await fetch(process.env.WP_API_URL + 'wp/v2/pages?per_page=100')
@@ -52,4 +51,4 @@ module.exports = withSass({
 
     return config;
   }
-});
+};
