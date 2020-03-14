@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import Navigation from '../../components/navigation';
-import Footer from '../../components/footer';
-import { getNavigationItems, getPage } from '../../lib/wordpress';
+import Navigation from '../components/navigation';
+import Footer from '../components/footer';
+import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
 
 const HomePage = ({ navItems, page }) => {
 
   const { title, content, modified } = page;
+
   return (
     <div className="Main">
       <Head>
@@ -21,15 +22,20 @@ const HomePage = ({ navItems, page }) => {
   );
 }
 
-HomePage.getInitialProps = async (req) => {
-  if (process.browser) {
-    return __NEXT_DATA__.props.pageProps;
-  }
-
+export async function getStaticProps(context) {
   return {
-    navItems: await getNavigationItems(req),
-    page: await getPage(req)
+    props: {
+      navItems: await getNavigationItems(),
+      page: await getPage(context)
+    }
   }
-};
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: await getPaths(),
+    fallback: false
+  }
+}
 
 export default HomePage;
