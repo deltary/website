@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEnvelope, FaFacebookSquare, FaInstagram, FaAddressCard } from 'react-icons/fa';
 import Link from 'next/link'
 
-import { asPageLink } from '../lib/linkUtils';
+import { asLink } from '../lib/linkUtils';
 
 function Footer() {
   return (
@@ -24,7 +24,7 @@ function Footer() {
           </a>
         </li>
         <li>
-          <Link href="/yhteystiedot" as={asPageLink('/yhteystiedot')}>
+          <Link href="/yhteystiedot" as={asLink('/yhteystiedot')}>
             <a>
               <FaAddressCard size="2rem" /> Yhteystiedot
             </a>
