@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
+import Calendar from '../components/calendar';
+import Sponsors from '../components/sponsors';
 import { getNavigationItems } from '../lib/wordpress';
 
 const HomePage = ({ navItems }) => {
@@ -9,17 +11,31 @@ const HomePage = ({ navItems }) => {
       <Head>
         <title>Delta ry</title>
       </Head>
-      <Navigation navItems={navItems}/>
+      <Navigation navItems={navItems} />
       <div className="ContentWrapper">
-        <div className="InfoContainer">
-          <div className="Info">
-            <h1>Delta ry?</h1>
-            Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys.
+        <div className="Hero">
+          <div className="Hero-colorOverlay">
+            <div className="Hero-info">
+              <h1>Delta ry</h1>
+              Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys.
+            </div>
           </div>
         </div>
-      </div>
-      <div className="LandingPage">
-        Tähän sitten sitä sisältöä, kuvia ja muuta.
+        <div className="FrontPage">
+          <div className="FrontPage-info">
+            {/* TODO: this should be fetched from WordPress */}
+            <h1>Delta ry?</h1>
+            <p>
+              Tähän vois kirjotella semmosen sopivanpitusen kuvauksen Deltasta jonka jaksaa etusivulle ländääjä lukea.
+              Toi Yhdistys-sivun kuvaus on vähän turhan hoosee. Et jos joku ihan korkeintaan tän mittanen kuvaus niin vois
+              samalla laskee että on abaut samankorkunen kun toi vieressä oleva kalenteri. Tää contentti on kans pakko
+              tulla WordPressista tai webmasterit ei saa ikinä rauhaa kun pitää korjailla jotain typoja ja muuta.
+            </p>
+            <a>Mukaan toimintaan</a>
+          </div>
+          <Calendar />
+        </div>
+        <Sponsors />
       </div>
       <Footer />
     </>

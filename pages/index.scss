@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter:400,700|Karla&display=swap');
 
 $color-purple: #873a9e;
+$color-pink: #f999ff;
+$color-darkpurple: #551991;
 
 body {
   padding: 0;
@@ -9,48 +11,79 @@ body {
   box-sizing: border-box;
 }
 
-.InfoContainer {
-  background-color: $color-purple;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  transform: skewY(-10deg);
-  margin-top: -180px;
-  height: 470px;
+header {
+  // FIXME: this breaks all pages except index.
+  position: absolute;
+}
+
+.Hero {
+  height: 100vh;
+  background: url("/heroimage.jpg");
+  background-position: center;
+  background-size: cover;
   
-  > .Info {
-    color: #fff;
+  &-colorOverlay {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(85, 25, 145, 0.5);
+    height: 100%;
+    width: 100%;
+  }
+  
+  &-info {
     font-size: 2rem;
-    max-width: 800px;
-    margin-top: 180px;
-    transform: skewY(10deg);
+    width: 800px;
+    max-width: 90vw;
+    position: relative;
+    top: 53vh;
 
     > h1 {
+      font-size: 5rem;
       margin: 0;
-      font-size: 3rem;
     }
   }
 }
 
-.LogoContainer {
-  margin-top: -150px;
-  
-  > .Wedge {
-    background-color: $color-purple;
-    transform: skewY(-27deg);
-    height: 300px;
+.FrontPage {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1;
   }
 
-  > img {
-    float: right;
-    margin-top: 400px;
-    height: 300px;
+  @media (min-width: 1024px), (min-screen-width: 1024px) {
+    flex-wrap: nowrap;
   }
-}
 
-.LandingPage {
-  margin-top: 20vw;
-  padding: 30px;
-  font-size: 1.5rem;
-  text-align: center;
+  &-info {
+    background-color: $color-darkpurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+
+    > h1 {
+      margin-bottom: 0em;
+    }
+
+    > p {
+      line-height: 1.4;
+      font-size: 1.1rem;
+      max-width: 420px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    border-bottom: 2px solid $color-pink;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
 }

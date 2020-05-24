@@ -1,0 +1,32 @@
+.Calendar {
+  background-color: #fff;
+  color: $color-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+
+  .CalendarEvent {
+    font-size: 1rem;
+    color: $color-purple;
+    width: 300px;
+    max-width: 90vw;
+
+    > p {
+      margin: 4px 0;
+    }
+
+    > h1 {
+      color: $color-darkpurple;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    margin-bottom: 30px;
+  }
+
+  > a {
+    color: $color-darkpurple;
+  }
+}
