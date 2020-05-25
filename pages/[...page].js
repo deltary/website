@@ -2,8 +2,16 @@ import Head from 'next/head';
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
 import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
+import { useState, useEffect } from 'react';
 
-const HomePage = ({ navItems, page }) => {
+const HomePage = ({ staticNavItems, staticPage, slug }) => {
+  const [navItems, setNavItems] = useState(staticNavItems);
+  const [page, setPage] = useState(staticPage);
+
+  useEffect(async () => {
+    setNavItems(await getNavigationItems());
+    setPage(await getPage(slug));
+  }, []);
 
   const { title, content, modified } = page;
 
@@ -23,12 +31,15 @@ const HomePage = ({ navItems, page }) => {
 }
 
 export async function getStaticProps(context) {
+  const slug = context.params.page.join('/');
+
   return {
     props: {
-      navItems: await getNavigationItems(),
-      page: await getPage(context)
+      staticNavItems: await getNavigationItems(),
+      staticPage: await getPage(slug),
+      slug
     }
-  }
+  };
 }
 
 export async function getStaticPaths() {

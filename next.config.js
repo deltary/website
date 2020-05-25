@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const webpack = require('webpack');
 
 const assetPrefix = {
@@ -18,5 +17,8 @@ module.exports = {
     );
 
     return config;
+  },
+  env: {
+    WP_API_URL: process.env.WP_API_URL
   }
 };
