@@ -19,6 +19,8 @@ module.exports = {
     return config;
   },
   env: {
-    WP_API_URL: process.env.WP_API_URL
+    WP_API_URL: process.env.WP_API_URL,
+    GOOGLE_CALENDAR_ID: process.env.GOOGLE_CALENDAR_ID,
+    GOOGLE_CALENDAR_API_KEY: process.env.GOOGLE_CALENDAR_API_KEY,
   }
 };

@@ -14,10 +14,12 @@
   "author": "Konsta Purtsi",
   "license": "MIT",
   "dependencies": {
+    "date-fns": "^2.14.0",
     "next": "^9.3.0",
     "node-fetch": "^2.6.0",
     "ramda": "^0.26.1",
     "react": "^16.13.0",
+    "react-big-calendar": "^0.24.1",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
     "sass": "^1.26.3",

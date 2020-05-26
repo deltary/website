@@ -1,9 +1,11 @@
 /* page styles */ 
 @import 'pages/index.scss';
 @import 'pages/page.scss';
+@import 'pages/tapahtumakalenteri.scss';
 
 /* component styles */
 @import 'components/navigation.scss';
 @import 'components/footer.scss';
 @import 'components/calendar.scss';
 @import 'components/sponsors.scss';
+@import 'components/google-calendar.scss';

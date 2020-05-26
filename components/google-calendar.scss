@@ -1,0 +1,19 @@
+@import 'react-big-calendar/lib/sass/styles';
+
+.CalendarWrapper {
+    background-color: white;
+    color: $color-purple;
+    padding: 30px;
+    border-radius: 25px;
+
+    .rbc-event,
+    .rbc-event.rbc-event-selected,
+    .rbc-event {
+        background-color: $color-purple;    
+    }
+
+    .rbc-show-more {
+        color: $color-purple;
+    }
+}
+
