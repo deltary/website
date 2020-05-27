@@ -1,10 +1,14 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Navigation from '../components/navigation';
+import Hero from '../components/hero';
 import Footer from '../components/footer';
 import Calendar from '../components/calendar';
 import Sponsors from '../components/sponsors';
 import { getNavigationItems } from '../lib/wordpress';
+
+const description =
+  "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys."
 
 const HomePage = ({ staticNavItems }) => {
   const [navItems, setNavItems] = useState(staticNavItems);
@@ -23,14 +27,7 @@ const HomePage = ({ staticNavItems }) => {
       </Head>
       <Navigation navItems={navItems} />
       <div className="ContentWrapper">
-        <div className="Hero">
-          <div className="Hero-colorOverlay">
-            <div className="Hero-info">
-              <h1>Delta ry</h1>
-              Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys.
-            </div>
-          </div>
-        </div>
+        <Hero title="Delta ry" description={description} />
         <div className="FrontPage">
           <div className="FrontPage-info">
             {/* TODO: this should be fetched from WordPress */}
