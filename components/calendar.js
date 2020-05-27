@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getUpComingEvents } from '../lib/calendarUtils';
+import { format } from 'date-fns';
+import { fi } from 'date-fns/locale'
+
+const locale = { locale: fi };
 
 function Calendar() {
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => {
+    const callApi = async () => {
+      setEvents(await getUpComingEvents());
+    }
+    callApi();
+  }, []);
+
+  console.log(events);
+
   return (
     <div className="Calendar">
-      {/* TODO: implement dynamically */}
       <h1>Tapahtumat</h1>
-      <div className="CalendarEvent">
-        <p>lauantai, 01.08. kello 17:00 - 23:00</p>
-        <h1>Superhuikeet sitsit</h1>
-        <p>Osakuntasali, B, Rehtorinpellonkatu 4-6</p>
-      </div>
-      <div className="CalendarEvent">
-        <p>sunnuntai, 02.08. kello 17:00 - 18:00</p>
-        <h1>Hallituksen kokous</h1>
-        <p>#kokous–äänikanava, Discord</p>
-      </div>
-      <div className="CalendarEvent">
-        <p>lauantai, 22.08. kello 12:00 - 23:00</p>
-        <h1>d.O.O.m</h1>
-        <p>Quantumin takanurtsi</p>
-      </div>
+      {events.map(event => {
+        const formatRange = (start, end) => start + ' - ' + end;
+        const time = event.allDay
+          ? formatRange(
+              format(event.start, "EEEE, dd.MM. 'kello' H:mm", locale),
+              format(event.end, "H:mm", locale)
+            )
+          : formatRange(
+              format(event.start, "EEEE dd.MM.", locale),
+              format(event.end, "EEEE dd.MM.", locale)
+            );
+        return (
+          <div className="CalendarEvent">
+            <p>{time}</p>
+            <h1>{event.title}</h1>
+            <p>{event.location}</p>
+          </div>
+        );
+      })}
       <a>Linkki kalenteriin</a>
     </div>
   );
