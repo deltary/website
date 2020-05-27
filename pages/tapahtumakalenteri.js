@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
@@ -5,7 +6,16 @@ import GoogleCalendar from '../components/google-calendar';
 import { getNavigationItems } from '../lib/wordpress';
 
 
-const CalendarPage = ({ navItems }) => {
+function CalendarPage ({ staticNavItems }) {
+  const [navItems, setNavItems] = useState(staticNavItems);
+
+  useEffect(() => {
+    const callApi = async () => {
+      setNavItems(await getNavigationItems())
+    }
+    callApi();
+  }, []);
+
   return (
     <>
       <Head>
@@ -24,15 +34,12 @@ const CalendarPage = ({ navItems }) => {
   );
 }
 
-CalendarPage.getInitialProps = async (req) => {
-    if (process.browser) {
-        return __NEXT_DATA__.props.pageProps;
+export async function getStaticProps() {
+  return {
+    props: {
+      staticNavItems: await getNavigationItems()
     }
-
-    return {
-        navItems: await getNavigationItems()
-    }
+  };
 }
-
   
 export default CalendarPage;
