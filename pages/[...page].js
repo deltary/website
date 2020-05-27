@@ -8,9 +8,12 @@ const HomePage = ({ staticNavItems, staticPage, slug }) => {
   const [navItems, setNavItems] = useState(staticNavItems);
   const [page, setPage] = useState(staticPage);
 
-  useEffect(async () => {
-    setNavItems(await getNavigationItems());
-    setPage(await getPage(slug));
+  useEffect(() => {
+    const callApi = async () => {
+      setNavItems(await getNavigationItems());
+      setPage(await getPage(slug));
+    }
+    callApi();
   }, []);
 
   const { title, content, modified } = page;
@@ -46,7 +49,7 @@ export async function getStaticPaths() {
   return {
     paths: await getPaths(),
     fallback: false
-  }
+  };
 }
 
 export default HomePage;
