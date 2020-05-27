@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getUpComingEvents } from '../lib/calendarUtils';
 import { format } from 'date-fns';
-import { fi } from 'date-fns/locale'
+import { fi } from 'date-fns/locale';
+import Link from 'next/link';
 
 const locale = { locale: fi };
 
@@ -15,22 +16,27 @@ function Calendar() {
     callApi();
   }, []);
 
-  console.log(events);
-
   return (
     <div className="Calendar">
       <h1>Tapahtumat</h1>
       {events.map(event => {
         const formatRange = (start, end) => start + ' - ' + end;
         const time = event.allDay
-          ? formatRange(
-              format(event.start, "EEEE, dd.MM. 'kello' H:mm", locale),
-              format(event.end, "H:mm", locale)
-            )
-          : formatRange(
-              format(event.start, "EEEE dd.MM.", locale),
-              format(event.end, "EEEE dd.MM.", locale)
-            );
+          ? event.multiDay
+            ? formatRange(
+                format(event.start, "cccc, dd.MM.", locale),
+                format(event.end, "cccc, dd.MM.", locale)
+              )
+            : format(event.start, "cccc, dd.MM.", locale)
+          : event.multiDay
+            ? formatRange(
+                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
+                format(event.end, "cccc, dd.MM. 'kello' H:mm", locale)
+              )
+            : formatRange(
+                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
+                format(event.end, "H:mm", locale)
+              );
         return (
           <div className="CalendarEvent">
             <p>{time}</p>
@@ -39,7 +45,9 @@ function Calendar() {
           </div>
         );
       })}
-      <a>Linkki kalenteriin</a>
+      <Link href="/tapahtumakalenteri" >
+        <a>Linkki kalenteriin</a>
+      </Link>
     </div>
   );
 }

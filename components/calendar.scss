@@ -7,6 +7,10 @@
   align-items: center;
   padding: 2em;
 
+  > h1 {
+    color: $color-darkpurple;
+  }
+
   .CalendarEvent {
     font-size: 1rem;
     color: $color-purple;
