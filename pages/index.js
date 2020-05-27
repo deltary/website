@@ -1,11 +1,21 @@
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
 import Calendar from '../components/calendar';
 import Sponsors from '../components/sponsors';
 import { getNavigationItems } from '../lib/wordpress';
 
-const HomePage = ({ navItems }) => {
+const HomePage = ({ staticNavItems }) => {
+  const [navItems, setNavItems] = useState(staticNavItems);
+
+  useEffect(() => {
+    const callApi = async () => {
+      setNavItems(await getNavigationItems())
+    }
+    callApi();
+  }, []);
+
   return (
     <>
       <Head>
@@ -42,14 +52,12 @@ const HomePage = ({ navItems }) => {
   );
 }
 
-HomePage.getInitialProps = async (req) => {
-  if (process.browser) {
-    return __NEXT_DATA__.props.pageProps;
-  }
-
+export async function getStaticProps() {
   return {
-    navItems: await getNavigationItems()
-  }
+    props: {
+      staticNavItems: await getNavigationItems()
+    }
+  };
 }
 
 export default HomePage;
