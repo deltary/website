@@ -19,7 +19,8 @@ function Calendar() {
   return (
     <div className="Calendar">
       <h1>Tapahtumat</h1>
-      {events.map(event => {
+      {events.length 
+      ? events.map(event => {
         const formatRange = (start, end) => start + ' - ' + end;
         const time = event.allDay
           ? event.multiDay
@@ -44,7 +45,8 @@ function Calendar() {
             <p>{event.location}</p>
           </div>
         );
-      })}
+      })
+      : <h3>Ei tulevia tapahtumia</h3>}
       <Link href="/tapahtumakalenteri" >
         <a>Linkki kalenteriin</a>
       </Link>
