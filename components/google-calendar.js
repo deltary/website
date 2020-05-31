@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 
-import getEvents from '../lib/calendarUtils.js';
+import { getEvents } from '../lib/calendarUtils.js';
 
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
@@ -28,7 +28,7 @@ function GoogleCalendar() {
       setEvents(await getEvents());
     }
     callApi();
-  });
+  }, []);
 
   return (
     <div className="CalendarWrapper">
