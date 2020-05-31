@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter:400,700|Karla&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 
 $color-purple: #873a9e;
 $color-pink: #f999ff;
@@ -51,6 +51,7 @@ header {
     text-decoration: none;
     border-bottom: 2px solid $color-pink;
     cursor: pointer;
+    color: #fff;
 
     &:hover {
       color: $color-pink;
