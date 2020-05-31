@@ -1,10 +1,6 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-import Navigation from '../components/navigation';
-import Hero from '../components/hero';
-import Footer from '../components/footer';
-import Calendar from '../components/calendar';
-import Sponsors from '../components/sponsors';
+import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
 import { getNavigationItems, getIndexPage } from '../lib/wordpress';
 
 // TODO: fetch dynamically from a WP custom field
@@ -30,7 +26,7 @@ const HomePage = ({ staticNavItems, staticPage }) => {
       <Head>
         <title>Delta ry</title>
       </Head>
-      <Navigation navItems={navItems} />
+      <Header navItems={navItems} />
       <div className="ContentWrapper">
         <Hero title={title} description={description} image={heroImage} />
         <div className="FrontPage">

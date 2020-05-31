@@ -4,9 +4,9 @@
 @import 'pages/tapahtumakalenteri.scss';
 
 /* component styles */
-@import 'components/navigation.scss';
-@import 'components/hero.scss';
-@import 'components/footer.scss';
-@import 'components/calendar.scss';
-@import 'components/sponsors.scss';
-@import 'components/google-calendar.scss';
+@import 'components/header/header.scss';
+@import 'components/hero/hero.scss';
+@import 'components/footer/footer.scss';
+@import 'components/calendar/calendar.scss';
+@import 'components/sponsors/sponsors.scss';
+@import 'components/google-calendar/google-calendar.scss';

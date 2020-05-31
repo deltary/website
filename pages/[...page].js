@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Navigation from '../components/navigation';
-import Footer from '../components/footer';
+import { Header, Footer } from '../components';
 import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
 import { useState, useEffect } from 'react';
 
@@ -23,7 +22,7 @@ const HomePage = ({ staticNavItems, staticPage, slug }) => {
       <Head>
         <title>{title} | Delta ry</title>
       </Head>
-      <Navigation navItems={navItems}/>
+      <Header navItems={navItems}/>
       <article className="Page">
         <h1 className="Page__title">{title}</h1>
         <div className="Content" dangerouslySetInnerHTML={{__html: content}}></div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUpComingEvents } from '../lib/calendarUtils';
+import { getUpComingEvents } from '../../lib/calendarUtils';
 import { format } from 'date-fns';
 import { fi } from 'date-fns/locale';
 import Link from 'next/link';

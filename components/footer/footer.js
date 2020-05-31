@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaFacebookSquare, FaInstagram, FaAddressCard } from 'react-icons/fa';
 
-import { DynamicLink } from '../lib/linkUtils';
+import { DynamicLink } from '../../lib/linkUtils';
 
 function Footer() {
   return (
