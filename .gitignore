@@ -42,4 +42,7 @@ jspm_packages
 .node_repl_history
 .next
 
+# Vscode workspace
+*.code-workspace
+
 deploy.sh
