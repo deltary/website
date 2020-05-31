@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Header, Footer } from '../components';
+import { Header, Hero, Footer } from '../components';
 import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
 import { useState, useEffect } from 'react';
 
@@ -15,7 +15,7 @@ const HomePage = ({ staticNavItems, staticPage, slug }) => {
     callApi();
   }, []);
 
-  const { title, content, modified } = page;
+  const { title, content, heroImage } = page;
 
   return (
     <div className="Main">
@@ -23,8 +23,8 @@ const HomePage = ({ staticNavItems, staticPage, slug }) => {
         <title>{title} | Delta ry</title>
       </Head>
       <Header navItems={navItems}/>
+      <Hero title={title} image={heroImage} height="30vh" />
       <article className="Page">
-        <h1 className="Page__title">{title}</h1>
         <div className="Content" dangerouslySetInnerHTML={{__html: content}}></div>
       </article>
       <Footer />

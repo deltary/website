@@ -3,43 +3,38 @@
 $color-purple: #873a9e;
 $color-overalls: #6427a7;
 $color-dark-purple: #6d366f;
+$color-darker-purple: #551991;
 $color-pink: #f999ff;
 $header-height: 60px;
+$hero-height: 30vh;
 $footer-height: 85px;
 
 body {
   padding: 0;
   margin: 0;
-  background-color: $color-purple;
   font-family: 'Karla', sans-serif;
   box-sizing: border-box;
   color: white;
 }
 
 .Main {
-  background-color: $color-purple;
-  
+  background-color: #fff;
+  color: #000;
 }
 
 .Page {
-  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  min-height: calc(100vh - #{$hero-height} - #{$footer-height});
   box-sizing: border-box;
   max-width: 100%;
   width: 900px;
   margin: 0 auto;
   padding: 10px;
   
-  &__title {
-    font-size: 2.1rem;
-    text-align: center;
-    margin: 10px;
-    font-family: 'Karla', sans-serif;
-  }
-  
   > .Content {
     font-family: 'Karla', sans-serif;
 
     h1,h2,h3,h4,h5 {
+      color: $color-darker-purple;
       text-align: left;
     }
 
@@ -53,7 +48,7 @@ body {
     }
 
     strong, b {
-      color: $color-pink;
+      color: $color-darker-purple;
       font-weight: 700;
     }
 
@@ -73,7 +68,7 @@ body {
     }
 
     a {
-      color: white;
+      color: $color-darker-purple;
       text-decoration: none;
       border-bottom: 2px solid $color-pink;
 
@@ -88,8 +83,8 @@ body {
       height: 3px;
       margin-bottom: 3em;
       /* Set the hr color */
-      color: $color-pink; /* old IE */
-      background-color: $color-pink; /* Modern Browsers */
+      color: $color-purple; /* old IE */
+      background-color: $color-purple; /* Modern Browsers */
     }
 
     img {

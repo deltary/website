@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Header, Footer, GoogleCalendar } from '../components';
+import { Header, Hero, Footer, GoogleCalendar } from '../components';
 import { getNavigationItems } from '../lib/wordpress';
 
 
@@ -21,8 +21,8 @@ function CalendarPage ({ staticNavItems }) {
         <link rel='stylesheet' href='/tapahtumakalenteri.scss' />
       </Head>
       <Header navItems={navItems}/>
+      <Hero title="Tapahtumakalenteri" height="30vh" />
       <article className="Page">
-        <h1 className="Page__title">{"Tapahtumakalenteri"}</h1>
         <div className="ContentWrapper">
           <GoogleCalendar />
         </div>

@@ -1,6 +1,6 @@
 .Hero {
-  height: 100vh;
-  
+  color: #fff;
+
   &-colorOverlay {
     text-align: center;
     display: flex;
@@ -13,16 +13,21 @@
   }
   
   &-info {
+    margin-top: 2em;
     font-size: 1.5rem;
-    width: 800px;
     max-width: 90vw;
+    
+    &--fullheight {
+      width: 800px;
+      margin-top: 0;
+    }
 
     @media (min-width: 1024px), (min-screen-width: 1024px) {
       font-size: 2rem;
     }
 
     > h1 {
-      font-size: 4rem;
+      font-size: 6vw;
       margin: 0;
 
       @media (min-width: 1024px), (min-screen-width: 1024px) {

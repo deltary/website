@@ -28,14 +28,14 @@ const HomePage = ({ staticNavItems, staticPage }) => {
       </Head>
       <Header navItems={navItems} />
       <div className="ContentWrapper">
-        <Hero title={title} description={description} image={heroImage} />
+        <Hero title={title} description={description} image={heroImage} height="100vh" />
         <div className="FrontPage">
           <div className="FrontPage-info" dangerouslySetInnerHTML={{__html: content}} />
           <Calendar />
         </div>
         <Sponsors />
       </div>
-      <Footer />
+      <Footer invertColors={true} />
     </>
   );
 }
