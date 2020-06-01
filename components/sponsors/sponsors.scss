@@ -1,0 +1,43 @@
+$color-darkestpurple: #4b1581;
+
+.Sponsors {
+  background-color: $color-darkestpurple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 3em;
+
+  &-logocontainer {
+    display: flex;
+    margin-bottom: 1em;
+
+    > a {
+      max-width: 200px;
+
+      > img {
+        max-width: 100%;
+        border-radius: 4px;
+        transition: .1s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  > a {
+    text-decoration: none;
+    border-bottom: 2px solid $color-pink;
+    cursor: pointer;
+    color: #fff;
+    line-height: 1.4;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
+}

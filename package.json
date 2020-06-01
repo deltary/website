@@ -24,5 +24,8 @@
     "react-icons": "^3.9.0",
     "sass": "^1.26.3",
     "wpapi": "^1.2.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.4.0"
   }
 }

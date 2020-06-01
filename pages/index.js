@@ -1,53 +1,41 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-import Navigation from '../components/navigation';
-import Footer from '../components/footer';
-import Calendar from '../components/calendar';
-import Sponsors from '../components/sponsors';
-import { getNavigationItems } from '../lib/wordpress';
+import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
+import { getNavigationItems, getIndexPage } from '../lib/wordpress';
 
-const HomePage = ({ staticNavItems }) => {
+// TODO: fetch dynamically from a WP custom field
+const description =
+  "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys."
+
+const HomePage = ({ staticNavItems, staticPage }) => {
   const [navItems, setNavItems] = useState(staticNavItems);
+  const [page, setPage] = useState(staticPage);
 
   useEffect(() => {
     const callApi = async () => {
-      setNavItems(await getNavigationItems())
+      setNavItems(await getNavigationItems());
+      setPage(await getIndexPage());
     }
     callApi();
   }, []);
+
+  const { title, content, heroImage } = page;
 
   return (
     <>
       <Head>
         <title>Delta ry</title>
       </Head>
-      <Navigation navItems={navItems} />
+      <Header navItems={navItems} />
       <div className="ContentWrapper">
-        <div className="Hero">
-          <div className="Hero-colorOverlay">
-            <div className="Hero-info">
-              <h1>Delta ry</h1>
-              Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys.
-            </div>
-          </div>
-        </div>
+        <Hero title={title} description={description} image={heroImage} height="100vh" />
         <div className="FrontPage">
-          <div className="FrontPage-info">
-            {/* TODO: this should be fetched from WordPress */}
-            <h1>Delta ry?</h1>
-            <p>
-              Tähän vois kirjotella semmosen sopivanpitusen kuvauksen Deltasta jonka jaksaa etusivulle ländääjä lukea.
-              Toi Yhdistys-sivun kuvaus on vähän turhan hoosee. Et jos joku ihan korkeintaan tän mittanen kuvaus niin vois
-              samalla laskee että on abaut samankorkunen kun toi vieressä oleva kalenteri. Tää contentti on kans pakko
-              tulla WordPressista tai webmasterit ei saa ikinä rauhaa kun pitää korjailla jotain typoja ja muuta.
-            </p>
-            <a>Mukaan toimintaan</a>
-          </div>
+          <div className="FrontPage-info" dangerouslySetInnerHTML={{__html: content}} />
           <Calendar />
         </div>
         <Sponsors />
       </div>
-      <Footer />
+      <Footer invertColors={true} />
     </>
   );
 }
@@ -55,7 +43,8 @@ const HomePage = ({ staticNavItems }) => {
 export async function getStaticProps() {
   return {
     props: {
-      staticNavItems: await getNavigationItems()
+      staticNavItems: await getNavigationItems(),
+      staticPage: await getIndexPage()
     }
   };
 }

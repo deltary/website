@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter:400,700|Karla&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 
 $color-purple: #873a9e;
 $color-pink: #f999ff;
@@ -14,36 +14,6 @@ body {
 header {
   // FIXME: this breaks all pages except index.
   position: absolute;
-}
-
-.Hero {
-  height: 100vh;
-  background: url("/heroimage.jpg");
-  background-position: center;
-  background-size: cover;
-  
-  &-colorOverlay {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(85, 25, 145, 0.5);
-    height: 100%;
-    width: 100%;
-  }
-  
-  &-info {
-    font-size: 2rem;
-    width: 800px;
-    max-width: 90vw;
-    position: relative;
-    top: 53vh;
-
-    > h1 {
-      font-size: 5rem;
-      margin: 0;
-    }
-  }
 }
 
 .FrontPage {
@@ -81,6 +51,7 @@ header {
     text-decoration: none;
     border-bottom: 2px solid $color-pink;
     cursor: pointer;
+    color: #fff;
 
     &:hover {
       color: $color-pink;

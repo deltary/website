@@ -1,0 +1,74 @@
+$footer-height: 170px;
+$color-pink: #f999ff;
+$color-purple: #873a9e;
+$color-light-purple: #6d366f;
+$color-darker-purple: #551991;
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: $footer-height;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-darker-purple;
+
+  &.Footer-inverted {
+    background-color: #fff;
+
+    a {
+      color: $color-darker-purple;
+    }
+  }
+
+  @media (min-width: 1024px), (min-screen-width: 1024px) {
+    padding: 0 10em;
+  }
+
+  > .FooterBrand {
+    height: 90px;
+    margin: 2em 0 1em;
+
+    @media (min-width: 600px), (min-screen-width: 600px) {
+      height: 60px;
+      margin: 0;
+    }
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    > img {
+      max-height: 100%;
+    }
+  }
+
+  > ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    > li {
+      padding: 0.5em;
+      width: 165px;
+    }
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $color-pink;
+    }
+
+    > svg {
+      margin: 0 0.5em;
+    }
+  }
+}
