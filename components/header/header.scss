@@ -152,7 +152,7 @@ header {
       margin: 0 3rem 3rem;
     }
 
-    @media (min-width: 1000px), (min-screen-width: 1000px) {
+    @media (min-width: 1200px), (min-screen-width: 1200px) {
       max-height: 300px;
       margin: 0 4rem 4rem;
     }
@@ -181,6 +181,7 @@ header {
         display: flex;
         flex-direction: column;
         border-left: 2px solid $color-purple;
+        margin-left: 6px;
       }
 
       .Menu__site {
