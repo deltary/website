@@ -1,17 +1,14 @@
 import React from 'react';
 import { FaEnvelope, FaFacebookSquare, FaInstagram, FaAddressCard } from 'react-icons/fa';
 import Link from 'next/link'
+import { Brand } from '../../components';
 
 import { DynamicLink, asLink } from '../../lib/linkUtils';
 
 function Footer({ invertColors = false }) {
   return (
     <footer className={invertColors ? 'Footer-inverted' : undefined}>
-      <Link href="/">
-        <a className="FooterBrand">
-          <img src={asLink(invertColors ? '/deltalogo-purple.svg' : '/deltalogo.svg')} />
-        </a>
-      </Link>
+      <Brand isColorInverted={invertColors} />
       <ul>
         <li>
           <a href="mailto: delta@utu.fi">

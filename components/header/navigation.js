@@ -1,11 +1,11 @@
-import Brand from './brand';
+import Brand from '../brand/brand';
 
 import { DynamicLink } from '../../lib/linkUtils';
 
 function Navigation({ isOpen, navItems }) {
   return (
     <div className={isOpen ? "MenuWrapper MenuWrapper--open" : "MenuWrapper"}>
-      <Brand isOpen={true} />
+      <Brand isColorInverted={true} />
       <div className="Menu">
         {(navItems || []).map(category => (
           <div className="Menu__category" key={category.title}>

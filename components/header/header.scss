@@ -7,46 +7,8 @@ header {
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  padding: 0 20px;
   justify-content: flex-start;
   top: 0;
-  
-  .Brand {
-    display: inline-flex;
-    align-items: center;
-    z-index: 50;
-    height: 60px;
-    top: 0;
-    left: 0;
-    margin: 1em;
-    color: #fff;
-    text-decoration: none;
-
-    @media (min-width: 600px), (min-screen-width: 600px) {
-      margin: 3em;
-    }
-
-    &--open {
-      color: $color-light-purple;
-    }
-    
-    > img {
-      height: 45px;
-      width: auto;
-      z-index: 3;
-    }
-
-    > div {
-      display: none;
-      max-width: 400px;
-      margin-left: 1rem;
-      align-items: center;
-
-      @media (min-width: 670px), (min-screen-width: 670px) {
-        display: inline-flex;
-      }
-    }
-  }
 
   .NavigationButton {
     cursor: pointer;
@@ -150,7 +112,6 @@ header {
   top: 0;
   left: 0;
   width: 100vw;
-  padding-top: $header-height;
   padding: 0 0 2em;
   line-height: 1.3;
   z-index: 60;

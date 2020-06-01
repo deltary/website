@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Brand from './brand';
+import { Brand } from '../../components';
 import Navigation from './navigation';
 
 function Header({ navItems }) {
@@ -10,11 +10,11 @@ function Header({ navItems }) {
 
   return (
     <header className={openClass}>
-      <Brand />
+      <Brand isColorInverted={false} />
       <div className="NavigationButton"
-          onClick={() => toggleOpen(!isMenuOpen)}>
+           onClick={() => toggleOpen(!isMenuOpen)}>
         <div id="nav-icon"
-          className={openClass}>
+             className={openClass}>
         <span></span>
         <span></span>
         <span></span>

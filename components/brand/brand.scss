@@ -1,0 +1,45 @@
+$color-pink: #f999ff;
+
+.Brand {
+  display: inline-flex; 
+  position: relative;
+  align-items: center;
+  z-index: 50;
+  height: 60px;
+  top: 0;
+  left: 0;
+  margin: 1em;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-pink;
+
+    svg > path {
+      fill: $color-pink;
+    }
+  }
+
+  @media (min-width: 600px), (min-screen-width: 600px) {
+    margin: 3em;
+  }
+
+  &--inverted {
+    color: $color-light-purple;
+
+    svg > path {
+      fill: $color-light-purple;
+    }
+  }
+
+  > div {
+    display: none;
+    max-width: 400px;
+    margin-left: 1rem;
+    align-items: center;
+
+    @media (min-width: 670px), (min-screen-width: 670px) {
+      display: inline-flex;
+    }
+  }
+}
