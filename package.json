@@ -22,8 +22,7 @@
     "react-big-calendar": "^0.24.1",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
-    "sass": "^1.26.3",
-    "wpapi": "^1.2.1"
+    "sass": "^1.26.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.4.0"

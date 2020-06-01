@@ -2,6 +2,7 @@
 import { Fragment } from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { GA_TRACKING_ID } from '../lib/gtag';
+import { Tags } from '../components';
 
 export default class MyDocument extends Document {
   static async getInitalProps(ctx) {
@@ -24,8 +25,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="fi">
         <Head>          
-          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-
+          <Tags />
           {isProduction && (
             <Fragment>
               <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />

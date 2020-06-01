@@ -5,5 +5,6 @@ import Calendar from './calendar/calendar';
 import GoogleCalendar from './google-calendar/google-calendar';
 import Sponsors from './sponsors/sponsors';
 import Brand from './brand/brand';
+import Tags from './tags/tags';
 
-export { Header, Brand, Hero, Footer, Calendar, GoogleCalendar, Sponsors };
+export { Header, Brand, Hero, Footer, Calendar, GoogleCalendar, Sponsors, Tags };
