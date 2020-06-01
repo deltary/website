@@ -112,6 +112,7 @@ header {
 
       &.open > span {
         background-color: $color-purple;
+        box-shadow: none;
 
         &:nth-child(1) {
           top: 18px;
@@ -158,7 +159,7 @@ header {
   -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
   box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
 
-  @media (max-width: 670px), (max-screen-width: 670px) {
+  @media (max-width: 670px), (max-screen-width: 670px), (max-height: 500px), (max-screen-height: 500px) {
     bottom: -60px;
     margin-bottom: 60px;
     overflow-y: scroll;

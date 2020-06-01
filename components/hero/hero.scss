@@ -1,5 +1,6 @@
 .Hero {
   color: #fff;
+  min-height: 300px;
 
   &-colorOverlay {
     text-align: center;
@@ -17,21 +18,29 @@
     font-size: 1.5rem;
     max-width: 90vw;
     
-    &--fullheight {
-      width: 800px;
-      margin-top: 0;
-    }
-
     @media (min-width: 1024px), (min-screen-width: 1024px) {
       font-size: 2rem;
     }
-
-    > h1 {
+    
+    h1 {
       font-size: 6vw;
       margin: 0;
-
+      
       @media (min-width: 1024px), (min-screen-width: 1024px) {
         font-size: 5rem;
+      }
+    }
+
+    &--fullheight {
+      width: 800px;
+      margin-top: 0;
+
+      > h1 {
+        font-size: 15vw;
+
+        @media (min-width: 600px), (min-screen-width: 600px) {
+          font-size: 5rem;
+        }
       }
     }
   }
