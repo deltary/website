@@ -25,10 +25,10 @@ $color-pink: #f999ff;
   }
 
   &--inverted {
-    color: $color-light-purple;
+    color: $color-darker-purple;
 
     svg > path {
-      fill: $color-light-purple;
+      fill: $color-darker-purple;
     }
   }
 

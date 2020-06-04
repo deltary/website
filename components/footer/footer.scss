@@ -14,6 +14,11 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: $color-darker-purple;
+  height: 250px;
+
+  @media (min-width: 1743px), (min-screen-width: 1743px) {
+    height: 170px;
+  }
 
   &.Footer-inverted {
     background-color: #fff;

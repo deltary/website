@@ -7,7 +7,6 @@ $color-darker-purple: #551991;
 $color-pink: #f999ff;
 $header-height: 60px;
 $hero-height: 30vh;
-$footer-height: 170px;
 
 body {
   padding: 0;
@@ -23,7 +22,12 @@ body {
 }
 
 .Page {
-  min-height: calc(100vh - #{$hero-height} - #{$footer-height});
+  min-height: calc(100vh - #{$hero-height} - 250px);
+  
+  @media (min-width: 1743px), (min-screen-width: 1743px) {
+    min-height: calc(100vh - #{$hero-height} - 170px);
+  }
+
   box-sizing: border-box;
   max-width: 100%;
   width: 900px;

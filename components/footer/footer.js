@@ -1,9 +1,8 @@
 import React from 'react';
 import { FaEnvelope, FaFacebookSquare, FaInstagram, FaAddressCard } from 'react-icons/fa';
-import Link from 'next/link'
 import { Brand } from '../../components';
 
-import { DynamicLink, asLink } from '../../lib/linkUtils';
+import { DynamicLink } from '../../lib/linkUtils';
 
 function Footer({ invertColors = false }) {
   return (
@@ -26,7 +25,7 @@ function Footer({ invertColors = false }) {
           </a>
         </li>
         <li>
-          <DynamicLink as="/yhteystiedot">
+          <DynamicLink as="/yhdistys/yhteystiedot">
             <a>
               <FaAddressCard size="2rem" /> Yhteystiedot
             </a>
