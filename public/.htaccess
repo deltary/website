@@ -2,6 +2,6 @@
   RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME}\.html -f
-  RewriteRule (.+)$ \/prod\/$1\.html [R=301]
+  RewriteCond %{REQUEST_FILENAME} !\.html$
+  RewriteRule (.+) $1.html [L]
 </IfModule>
