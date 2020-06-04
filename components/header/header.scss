@@ -40,7 +40,7 @@ header {
       transition: .2s ease-in-out;
     
       > span {
-        box-shadow: 0 0 2px $color-purple;
+        border: 0.5px solid $color-purple;
 
         display: block;
         position: absolute;

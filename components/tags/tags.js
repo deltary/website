@@ -32,7 +32,7 @@ function Tags() {
       <meta name="msapplication-tap-highlight" content="no" />
 
       {/* Add browser theme color */}
-      <meta name="theme-color" content="#551991" />
+      <meta name="theme-color" content="#4b1581" />
     </Fragment>
   );
 }
