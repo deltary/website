@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const assetPrefix = {
   'dev': '',
   'test': '/website',
-  'staging': '/new',
+  'staging': '/staging',
   'production': ''
 }[process.env.NODE_ENV];
 

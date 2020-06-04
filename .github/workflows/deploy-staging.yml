@@ -1,11 +1,9 @@
-name: Build and deploy to production
+name: Build and deploy to staging
 
 on:
-  repository_dispatch:
-    types: [save_post]
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   deploy:
@@ -33,12 +31,12 @@ jobs:
         GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
       run: |
         npm ci
-        npm run export-prod
+        npm run export-staging
     
     - name: Deploy
       env:
         FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_DIRECTORY: ${{ secrets.FTP_DIRECTORY }}
+        FTP_DIRECTORY: ${{ secrets.STAGING_FTP_DIRECTORY }}
       run: |
         sudo apt install -yqq lftp
         lftp $FTP_SERVER -e "set sftp:auto-confirm yes ; mirror -R ./out/ $FTP_DIRECTORY"
