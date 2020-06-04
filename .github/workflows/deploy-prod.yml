@@ -1,0 +1,40 @@
+name: Build and deploy to production
+
+on:
+  repository_dispatch:
+    types: [save_post]
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    
+    - name: Build
+      env:
+        WP_API_URL: ${{ secrets.WP_API_URL }}
+        GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
+        GOOGLE_CALENDAR_API_KEY: ${{ secrets.GOOGLE_CALENDAR_API_KEY }}
+        GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+      run: |
+        npm ci
+        npm run export
+    
+    - name: Deploy
+      env:
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        FTP_DIRECTORY: ${{ secrets.FTP_DIRECTORY }}
+      run: |
+        sudo apt install -yqq lftp
+        lftp $FTP_SERVER -e "set sftp:auto-confirm yes ; mirror -R ./out/ $FTP_DIRECTORY"
