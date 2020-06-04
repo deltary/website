@@ -12,9 +12,9 @@ function Navigation({ isOpen, navItems }) {
             <h3>{category.title}</h3>
             <div className="Menu__contents">
               {category.items.map(subItem => (
-                <DynamicLink as={subItem.link} key={subItem.title}>
+                <Link href={subItem.link} key={subItem.title}>
                   <a className="Menu__site">{subItem.title}</a>
-                </DynamicLink>
+                </Link>
               ))}
             </div>
           </div>
