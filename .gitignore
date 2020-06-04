@@ -46,3 +46,4 @@ jspm_packages
 *.code-workspace
 
 deploy.sh
+pages.json

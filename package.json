@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV='dev' next dev",
-    "build": "next build",
-    "export": "next build && next export",
+    "fetch-pages": "curl ${WP_API_URL}wp/v2/pages?per_page=100 > pages.json",
+    "dev": "npm run fetch-pages && NODE_ENV='dev' next dev",
+    "build": "npm run fetch-pages && next build",
+    "export": "npm run fetch-pages && next build && next export",
     "export-test": "NODE_ENV='test' npm run export",
     "export-staging": "NODE_ENV='staging' npm run export",
     "export-prod": "NODE_ENV='production' npm run export"
