@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV='dev' next dev",
     "build": "next build",
-    "export": "next build && next export",
+    "export": "NODE_ENV='production' next build && next export",
     "export-test": "NODE_ENV='test' npm run export",
     "export-staging": "NODE_ENV='staging' npm run export"
   },

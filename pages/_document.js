@@ -6,9 +6,6 @@ import { Tags } from '../components';
 
 export default class MyDocument extends Document {
   static async getInitalProps(ctx) {
-    const sheet = new ServerStyleSheet();
-    const originalRenderPage = ctx.renderPage;
-
     const initialProps = await Document.getInitialProps(ctx);
 
     const isProduction = process.env.NODE_ENV === 'production';
