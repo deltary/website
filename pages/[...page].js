@@ -1,20 +1,8 @@
 import Head from 'next/head';
 import { Header, Hero, Footer } from '../components';
 import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
-import { useState, useEffect } from 'react';
 
-const HomePage = ({ staticNavItems, staticPage, slug }) => {
-  const [navItems, setNavItems] = useState(staticNavItems);
-  const [page, setPage] = useState(staticPage);
-
-  useEffect(() => {
-    const callApi = async () => {
-      setNavItems(await getNavigationItems());
-      setPage(await getPage(slug));
-    }
-    callApi();
-  }, []);
-
+const HomePage = ({ navItems, page }) => {
   const { title, content, heroImage } = page;
 
   return (
@@ -37,9 +25,8 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      staticNavItems: await getNavigationItems(),
-      staticPage: await getPage(slug),
-      slug
+      navItems: await getNavigationItems(),
+      page: await getPage(slug),
     }
   };
 }

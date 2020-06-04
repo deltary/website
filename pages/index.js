@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
 import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
 import { getNavigationItems, getIndexPage } from '../lib/wordpress';
 
@@ -7,18 +6,7 @@ import { getNavigationItems, getIndexPage } from '../lib/wordpress';
 const description =
   "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys."
 
-const HomePage = ({ staticNavItems, staticPage }) => {
-  const [navItems, setNavItems] = useState(staticNavItems);
-  const [page, setPage] = useState(staticPage);
-
-  useEffect(() => {
-    const callApi = async () => {
-      setNavItems(await getNavigationItems());
-      setPage(await getIndexPage());
-    }
-    callApi();
-  }, []);
-
+const HomePage = ({ navItems, page }) => {
   const { title, content, heroImage } = page;
 
   return (
@@ -43,8 +31,8 @@ const HomePage = ({ staticNavItems, staticPage }) => {
 export async function getStaticProps() {
   return {
     props: {
-      staticNavItems: await getNavigationItems(),
-      staticPage: await getIndexPage()
+      navItems: await getNavigationItems(),
+      page: await getIndexPage()
     }
   };
 }
