@@ -1,8 +1,8 @@
+import Link from 'next/link'
+
 import Brand from '../brand/brand';
 
-import { DynamicLink } from '../../lib/linkUtils';
-
-function Navigation({ isOpen, navItems }) {
+function Navigation({ isOpen, navItems, closeNav }) {
   return (
     <div className={isOpen ? "MenuWrapper MenuWrapper--open" : "MenuWrapper"}>
       <Brand isColorInverted={true} />
@@ -13,7 +13,7 @@ function Navigation({ isOpen, navItems }) {
             <div className="Menu__contents">
               {category.items.map(subItem => (
                 <Link href={subItem.link} key={subItem.title}>
-                  <a className="Menu__site">{subItem.title}</a>
+                  <a onClick={closeNav} className="Menu__site">{subItem.title}</a>
                 </Link>
               ))}
             </div>

@@ -21,7 +21,7 @@ function Header({ navItems }) {
         <span></span>
       </div>
       </div>
-      <Navigation isOpen={isMenuOpen} navItems={navItems} />
+      <Navigation isOpen={isMenuOpen} navItems={navItems} closeNav={() => toggleOpen(false)}/>
     </header>
   );
 }
