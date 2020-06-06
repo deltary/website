@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Header, Hero, Footer } from '../components';
 import { getNavigationItems } from '../lib/wordpress';
+import { readJSON } from '../lib/fsUtils';
 
 const Custom404 = ({ navItems }) => {
   return (
@@ -30,9 +31,11 @@ const Custom404 = ({ navItems }) => {
 }
 
 export async function getStaticProps() {
+  const navigation = readJSON('navitems.json');
+
   return {
     props: {
-      navItems: await getNavigationItems()
+      navItems: await getNavigationItems(navigation)
     }
   };
 }

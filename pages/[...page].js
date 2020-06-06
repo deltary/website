@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Header, Hero, Footer } from '../components';
 import { getNavigationItems, getPage, getPaths } from '../lib/wordpress';
+import { readJSON } from '../lib/fsUtils';
 
 const HomePage = ({ navItems, page }) => {
   const { title, content, heroImage } = page;
@@ -21,19 +22,24 @@ const HomePage = ({ navItems, page }) => {
 }
 
 export async function getStaticProps(context) {
+  const pages = readJSON('pages.json');
+  const navigation = readJSON('navitems.json');
+  
   const slug = context.params.page.join('/');
 
   return {
     props: {
-      navItems: await getNavigationItems(),
-      page: await getPage(slug),
+      navItems: await getNavigationItems(navigation),
+      page: await getPage(pages, slug),
     }
   };
 }
 
 export async function getStaticPaths() {
+  const pages = readJSON('pages.json');
+
   return {
-    paths: await getPaths(),
+    paths: await getPaths(pages),
     fallback: false
   };
 }

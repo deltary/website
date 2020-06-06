@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Header, Hero, Footer, GoogleCalendar } from '../components';
 import { getNavigationItems } from '../lib/wordpress';
-
+import { readJSON } from '../lib/fsUtils';
 
 function CalendarPage ({ staticNavItems }) {
   const [navItems, setNavItems] = useState(staticNavItems);
@@ -33,9 +33,11 @@ function CalendarPage ({ staticNavItems }) {
 }
 
 export async function getStaticProps() {
+  const navigation = readJSON('navitems.json');
+
   return {
     props: {
-      staticNavItems: await getNavigationItems()
+      staticNavItems: await getNavigationItems(navigation)
     }
   };
 }

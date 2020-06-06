@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
 import { getNavigationItems, getIndexPage } from '../lib/wordpress';
+import { readJSON } from '../lib/fsUtils';
 
 // TODO: fetch dynamically from a WP custom field
 const description =
@@ -29,10 +30,13 @@ const HomePage = ({ navItems, page }) => {
 }
 
 export async function getStaticProps() {
+  const pages = readJSON('pages.json');
+  const navigation = readJSON('navitems.json');
+
   return {
     props: {
-      navItems: await getNavigationItems(),
-      page: await getIndexPage()
+      navItems: await getNavigationItems(navigation),
+      page: await getIndexPage(pages)
     }
   };
 }
