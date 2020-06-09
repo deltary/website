@@ -4,15 +4,7 @@ import { Header, Hero, Footer, GoogleCalendar } from '../components';
 import { getNavigationItems } from '../lib/wordpress';
 import { readJSON } from '../lib/fsUtils';
 
-function CalendarPage ({ staticNavItems }) {
-  const [navItems, setNavItems] = useState(staticNavItems);
-
-  useEffect(() => {
-    const callApi = async () => {
-      setNavItems(await getNavigationItems())
-    }
-    callApi();
-  }, []);
+function CalendarPage ({ navItems }) {
 
   return (
     <>
@@ -37,7 +29,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      staticNavItems: await getNavigationItems(navigation)
+      navItems: await getNavigationItems(navigation)
     }
   };
 }
