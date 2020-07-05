@@ -39,7 +39,7 @@ function Calendar() {
                 format(event.end, "H:mm", locale)
               );
         return (
-          <div className="CalendarEvent">
+          <div className="CalendarEvent" key={event.title}>
             <p>{time}</p>
             <h1>{event.title}</h1>
             <p>{event.location}</p>

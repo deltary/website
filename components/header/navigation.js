@@ -12,15 +12,26 @@ function Navigation({ isOpen, navItems, closeNav }) {
             <h3>{category.title}</h3>
             <div className="Menu__contents">
               {category.items.map(subItem => (
-                <Link href={subItem.link} key={subItem.title}>
-                  <a onClick={closeNav} className="Menu__site">{subItem.title}</a>
-                </Link>
+                <DynamicLink subItem={subItem} onClick={closeNav} key={subItem.title}/>
               ))}
             </div>
           </div>
         ))}
       </div>
     </div>
+  );
+}
+
+function DynamicLink({ subItem, onClick }) {
+  const { link, title } = subItem;
+  const href = link !== '/tapahtumakalenteri'
+    ? '/[...page]'
+    : '/tapahtumakalenteri';
+
+  return (
+    <Link href={href} as={link} key={title}>
+      <a onClick={onClick} className="Menu__site">{title}</a>
+    </Link>
   );
 }
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Header, Hero, Footer, GoogleCalendar } from '../components';
 import { getNavigationItems } from '../lib/wordpress';
@@ -10,7 +9,6 @@ function CalendarPage ({ navItems }) {
     <>
       <Head>
         <title>Tapahtumakalenteri | Delta ry</title>
-        <link rel='stylesheet' href='/tapahtumakalenteri.scss' />
       </Head>
       <Header navItems={navItems}/>
       <Hero title="Tapahtumakalenteri" height="30vh" />

@@ -10,7 +10,7 @@ const HomePage = ({ navItems, page }) => {
     <div className="Main">
       <Head>
         <title>{title} | Delta ry</title>
-      </Head>
+      </Head> 
       <Header navItems={navItems}/>
       <Hero title={title} image={heroImage} height="30vh" />
       <article className="Page">
