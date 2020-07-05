@@ -1,32 +1,25 @@
-
 import { Fragment } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { GA_TRACKING_ID } from '../lib/gtag';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { Tags } from '../components';
 
+const { NODE_ENV, GA_TRACKING_ID } = process.env;
+const isProduction = NODE_ENV === 'production';
+
 export default class MyDocument extends Document {
-  static async getInitalProps(ctx) {
+  static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-
-    const isProduction = process.env.NODE_ENV === 'production';
-
-    return {
-      ...initialProps,
-      isProduction
-    }
+    return { ...initialProps };
   }
 
   render() {
-    const { isProduction } = this.props;
-
     return (
-      <html lang="fi">
-        <Head>          
+      <Html lang="fi">
+        <Head>
           <Tags />
           {isProduction && (
             <Fragment>
               <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-              <script 
+              <script
                 dangerouslySetInnerHTML={{
                   __html: `
                   window.dataLayer = window.dataLayer || [];
@@ -35,7 +28,7 @@ export default class MyDocument extends Document {
 
                   gtag('config', '${GA_TRACKING_ID}');
                   `,
-                }} 
+                }}
               />
             </Fragment>
           )}
@@ -44,9 +37,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
-
-
