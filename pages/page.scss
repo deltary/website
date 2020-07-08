@@ -93,12 +93,10 @@ body {
     }
 
     img {
-      @media (max-width: 670px), (max-screen-width: 670px) {
-        max-width: 160px;
-        height: auto;
-      }
       border-radius: 6px;
       margin-bottom: 16px;
+      max-width: 100%;
+      height: auto;
 
       -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
       -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.21);
@@ -112,4 +110,11 @@ body {
   float: right;
   margin-left: 15px;
   margin-right: 0;
+}
+
+.wp-block-image img {
+  @media (max-width: 670px), (max-screen-width: 670px) {
+    max-width: 160px;
+    height: auto;
+  }
 }
