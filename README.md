@@ -9,7 +9,7 @@ Käytetty tekniikka
 
 ## Setuppaa projekti
 
-Asenna nodejs versio 14. Esimerkiksi käyttämällä |Node version manageria](https://nvm.sh):
+Asenna nodejs versio 14. Esimerkiksi käyttämällä [Node version manageria](https://nvm.sh):
 ```
 nvm install
 nvm use
