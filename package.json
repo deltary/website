@@ -11,22 +11,21 @@
     "build": "npm run fetch && next build",
     "export": "npm run fetch && next build && next export",
     "export-test": "NODE_ENV='test' npm run export",
-    "export-staging": "NODE_ENV='staging' npm run export",
     "export-prod": "NODE_ENV='production' npm run export"
   },
   "keywords": [],
   "author": "Konsta Purtsi",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.14.0",
-    "next": "^9.4.4",
-    "node-fetch": "^2.6.0",
-    "ramda": "^0.26.1",
-    "react": "^16.13.1",
-    "react-big-calendar": "^0.24.1",
-    "react-dom": "^16.13.0",
-    "react-icons": "^3.9.0",
-    "sass": "^1.26.3"
+    "date-fns": "^2.16.1",
+    "next": "^10.0.1",
+    "node-fetch": "^2.6.1",
+    "ramda": "^0.27.1",
+    "react": "^16.14.0",
+    "react-big-calendar": "^0.24.6",
+    "react-dom": "^16.14.0",
+    "react-icons": "^3.11.0",
+    "sass": "^1.29.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.4.0"
