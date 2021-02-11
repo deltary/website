@@ -34,12 +34,15 @@ jobs:
       run: |
         npm ci
         npm run export-prod
-    
-    - name: Deploy
+
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
         FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_DIRECTORY: ${{ secrets.FTP_DIRECTORY }}
-      run: |
-        sudo apt install -yqq lftp
-        sudo apt install -yqq lftp=4.8.1-1ubuntu0.1 --allow-downgrades
-        lftp $FTP_SERVER -e "set sftp:auto-confirm yes ; mirror -R ./out/ $FTP_DIRECTORY"
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        LOCAL_DIR: ./out/
+        REMOTE_DIR: ${{ secrets.FTP_DIRECTORY }}
+        METHOD: sftp
+        PORT: 22
+        ARGS: --delete --verbose --parallel=4
