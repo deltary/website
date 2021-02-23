@@ -8,7 +8,7 @@ function Sponsors() {
       <h1>Deltan tukena</h1>
 
       <div className="Sponsors-logocontainer">
-        <a target="_blank" href="https://www.loimu.fi/mika-on-loimu/miksi-kannattaa-liittya/liittymislomake_opiskelijat?source=delta_ry">
+        <a target="_blank" href="https://www.loimu.fi">
           <img src="logo-loimu.png" />
         </a>
       </div>
