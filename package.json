@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.16.1",
-    "next": "^10.0.1",
+    "next": "^10.2.3",
     "node-fetch": "^2.6.1",
     "ramda": "^0.27.1",
     "react": "^16.14.0",
