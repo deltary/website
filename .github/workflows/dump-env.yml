@@ -1,0 +1,27 @@
+name: Dump environment
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump environment
+      env:
+        WP_API_URL: ${{ secrets.WP_API_URL }}
+        GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
+        GOOGLE_CALENDAR_API_KEY: ${{ secrets.GOOGLE_CALENDAR_API_KEY }}
+        GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        GH_PAT: ${{ secrets.GH_PAT }}
+        FTP_DIRECTORY: ${{ secrets.FTP_DIRECTORY }}
+        STAGING_FTP_DIRECTORY: ${{ secrets.STAGING_FTP_DIRECTORY }}
+      run: |
+        sudo apt install gpg mailutils
+        gpg --fetch-keys https://github.com/taahol.gpg
+        env | gpg --batch --trust-model always --armour --encrypt --recipient taahol@utu.fi | mail -s 'Deltan env' taahol@utu.fi
