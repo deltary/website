@@ -25,12 +25,10 @@ export async function getStaticProps(context) {
   const pages = readJSON('pages.json');
   const navigation = readJSON('navitems.json');
   
-  const slug = context.params.page.join('/');
-
   return {
     props: {
       navItems: await getNavigationItems(navigation),
-      page: await getPage(pages, slug),
+      page: await getPage(pages, context.params.page),
     }
   };
 }
