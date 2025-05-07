@@ -22,7 +22,7 @@ const localizer = dateFnsLocalizer({
 
 function GoogleCalendar() {
   const [events, setEvents] = useState([]);
-  
+
   useEffect(() => {
     const callApi = async () => {
       setEvents(await getCalendarEvents());

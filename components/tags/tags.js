@@ -27,7 +27,7 @@ function Tags() {
       <meta property="twitter:image" content="/deltautufi_banner.jpg" />
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
+
       {/* Disable tap highlight on IE */}
       <meta name="msapplication-tap-highlight" content="no" />
 
