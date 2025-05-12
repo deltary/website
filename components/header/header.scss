@@ -7,8 +7,8 @@ header {
 
   .NavigationButton {
     cursor: pointer;
-    height: $header-height;
-    width: $header-height;
+    height: 60px;
+    width: 60px;
     position: fixed;
     top: 0;
     right: 0;
@@ -35,7 +35,7 @@ header {
       transition: .2s ease-in-out;
     
       > span {
-        border: 1.3px solid $color-purple;
+        border: 1.3px solid var(--color-purple);
 
         display: block;
         position: absolute;
@@ -68,7 +68,7 @@ header {
       }
 
       &.open > span {
-        background-color: $color-purple;
+        background-color: var(--color-purple);
         box-shadow: none;
 
         &:nth-child(1) {
@@ -165,7 +165,7 @@ header {
       }
       
       > h3 {
-        color: $color-dark-purple;
+        color: var(--color-dark-purple);
         text-decoration: none;
         font-weight: 800;
         font-size: 1.3rem;
@@ -175,7 +175,7 @@ header {
       .Menu__contents {
         display: flex;
         flex-direction: column;
-        border-left: 2px solid $color-purple;
+        border-left: 2px solid var(--color-purple);
         margin-left: 6px;
       }
 

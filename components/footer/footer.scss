@@ -1,15 +1,13 @@
-$footer-height: 170px;
-
 footer {
   display: flex;
   flex-wrap: wrap;
-  min-height: $footer-height;
+  min-height: 170px;
   width: 100%;
   box-sizing: border-box;
   font-size: 1.1rem;
   justify-content: center;
   align-items: center;
-  background-color: $color-darker-purple;
+  background-color: var(--color-darker-purple);
   height: 250px;
 
   @media (min-width: 1743px), (min-screen-width: 1743px) {
@@ -20,7 +18,7 @@ footer {
     background-color: #fff;
 
     a {
-      color: $color-darker-purple;
+      color: var(--color-darker-purple);
     }
   }
 
@@ -65,7 +63,7 @@ footer {
     align-items: center;
 
     &:hover {
-      color: $color-pink;
+      color: var(--color-pink);
     }
 
     > svg {

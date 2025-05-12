@@ -26,7 +26,7 @@ header {
   }
 
   &-info {
-    background-color: $color-darker-purple;
+    background-color: var(--color-darker-purple);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,12 +46,12 @@ header {
 
   a {
     text-decoration: none;
-    border-bottom: 2px solid $color-pink;
+    border-bottom: 2px solid var(--color-pink);
     cursor: pointer;
     color: #fff;
 
     &:hover {
-      color: $color-pink;
+      color: var(--color-pink);
     }
   }
 }

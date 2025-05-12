@@ -1,5 +1,5 @@
 .Sponsors {
-  background-color: $color-darkestpurple;
+  background-color: var(--color-darkestpurple);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,14 +29,14 @@
 
   > a {
     text-decoration: none;
-    border-bottom: 2px solid $color-pink;
+    border-bottom: 2px solid var(--color-pink);
     cursor: pointer;
     color: #fff;
     line-height: 1.4;
     font-size: 1.1rem;
 
     &:hover {
-      color: $color-pink;
+      color: var(--color-pink);
     }
   }
 }

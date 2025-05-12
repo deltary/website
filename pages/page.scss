@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-$header-height: 60px;
-$hero-height: 30vh;
+.Page {
+  --hero-height: 30vh;
+}
 
 body {
   padding: 0;
@@ -17,10 +18,10 @@ body {
 }
 
 .Page {
-  min-height: calc(100vh - #{$hero-height} - 250px);
+  min-height: calc(100vh - var(--hero-height) - 250px);
   
   @media (min-width: 1743px), (min-screen-width: 1743px) {
-    min-height: calc(100vh - #{$hero-height} - 170px);
+    min-height: calc(100vh - var(--hero-height) - 170px);
   }
 
   box-sizing: border-box;
@@ -33,7 +34,7 @@ body {
     font-family: 'Karla', sans-serif;
 
     h1,h2,h3,h4,h5 {
-      color: $color-darker-purple;
+      color: var(--color-darker-purple);
       text-align: left;
     }
 
@@ -47,7 +48,7 @@ body {
     }
 
     strong, b {
-      color: $color-darker-purple;
+      color: var(--color-darker-purple);
       font-weight: 700;
     }
 
@@ -67,12 +68,12 @@ body {
     }
 
     a {
-      color: $color-darker-purple;
+      color: var(--color-darker-purple);
       text-decoration: none;
-      border-bottom: 2px solid $color-pink;
+      border-bottom: 2px solid var(--color-pink);
 
       &:hover {
-        color: $color-pink;
+        color: var(--color-pink);
       }
     }
 
@@ -82,9 +83,8 @@ body {
       border: none;
       height: 3px;
       margin-bottom: 3em;
-      /* Set the hr color */
-      color: $color-purple; /* old IE */
-      background-color: $color-purple; /* Modern Browsers */
+      color: var(--color-purple);
+      background-color: var(--color-purple);
     }
 
     img {

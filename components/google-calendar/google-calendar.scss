@@ -2,18 +2,18 @@
 
 .CalendarWrapper {
   background-color: white;
-  color: $color-purple;
+  color: var(--color-purple);
   padding: 30px;
   border-radius: 25px;
 
   .rbc-event,
   .rbc-event.rbc-event-selected,
   .rbc-event {
-    background-color: $color-purple;
+    background-color: var(--color-purple);
   }
 
   .rbc-show-more {
-    color: $color-purple;
+    color: var(--color-purple);
   }
 }
 

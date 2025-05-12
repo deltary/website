@@ -11,10 +11,10 @@
   text-decoration: none;
 
   &:hover {
-    color: $color-pink;
+    color: var(--color-pink);
 
     svg > path {
-      fill: $color-pink;
+      fill: var(--color-pink);
     }
   }
 
@@ -23,10 +23,10 @@
   }
 
   &--inverted {
-    color: $color-darker-purple;
+    color: var(--color-darker-purple);
 
     svg > path {
-      fill: $color-darker-purple;
+      fill: var(--color-darker-purple);
     }
   }
 

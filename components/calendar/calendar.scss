@@ -1,6 +1,6 @@
 .Calendar {
   background-color: #fff;
-  color: $color-purple;
+  color: var(--color-purple);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,12 +8,12 @@
   padding: 2em;
 
   > h1 h3 {
-    color: $color-darker-purple;
+    color: var(--color-darker-purple);
   }
 
   .CalendarEvent {
     font-size: 1rem;
-    color: $color-purple;
+    color: var(--color-purple);
     width: 300px;
     max-width: 90vw;
 
@@ -22,7 +22,7 @@
     }
 
     > h1 {
-      color: $color-darker-purple;
+      color: var(--color-darker-purple);
       font-size: 1.4rem;
       margin: 0;
     }
@@ -31,6 +31,6 @@
   }
 
   > a {
-    color: $color-darker-purple;
+    color: var(--color-darker-purple);
   }
 }
