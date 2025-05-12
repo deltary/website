@@ -1,0 +1,23 @@
+/* page styles */
+@import 'pages/index.css';
+@import 'pages/page.css';
+@import 'pages/tapahtumakalenteri.css';
+
+/* component styles */
+@import 'components/header/header.css';
+@import 'components/hero/hero.css';
+@import 'components/footer/footer.css';
+@import 'components/calendar/calendar.css';
+@import 'components/sponsors/sponsors.css';
+@import 'components/google-calendar/google-calendar.css';
+@import 'components/brand/brand.css';
+
+/* site colors */
+:root {
+  --color-purple: #873a9e;
+  --color-overalls: #6427a7;
+  --color-dark-purple: #6d366f;
+  --color-darker-purple: #551991;
+  --color-darkestpurple: #4b1581;
+  --color-pink: #f999ff;
+}

@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  // FIXME: this breaks all pages except index.
+  /* FIXME: this breaks all pages except index. */
   position: absolute;
 }
 
