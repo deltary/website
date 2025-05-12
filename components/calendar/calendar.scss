@@ -8,7 +8,7 @@
   padding: 2em;
 
   > h1 h3 {
-    color: $color-darkpurple;
+    color: $color-darker-purple;
   }
 
   .CalendarEvent {
@@ -22,7 +22,7 @@
     }
 
     > h1 {
-      color: $color-darkpurple;
+      color: $color-darker-purple;
       font-size: 1.4rem;
       margin: 0;
     }
@@ -31,6 +31,6 @@
   }
 
   > a {
-    color: $color-darkpurple;
+    color: $color-darker-purple;
   }
 }

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
 
-$color-purple: #873a9e;
-$color-pink: #f999ff;
-$color-darkpurple: #551991;
-
 body {
   padding: 0;
   margin: 0;
@@ -30,7 +26,7 @@ header {
   }
 
   &-info {
-    background-color: $color-darkpurple;
+    background-color: $color-darker-purple;
     display: flex;
     flex-direction: column;
     justify-content: center;
