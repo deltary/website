@@ -1,6 +1,16 @@
+:root {
+  --hero-height: 30vh;
+
+  &:has(.Hero .fullheight) {
+    --hero-height: 100vh;
+  }
+}
+
 .Hero {
   color: #fff;
   min-height: 300px;
+  height: var(--hero-height);
+  background: center center/cover no-repeat var(--color-darker-purple);
 
   .colorOverlay {
     text-align: center;

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-.Page {
-  --hero-height: 30vh;
-}
-
 body {
   padding: 0;
   margin: 0;

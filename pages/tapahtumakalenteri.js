@@ -11,7 +11,7 @@ function CalendarPage ({ navItems }) {
         <title>Tapahtumakalenteri | Delta ry</title>
       </Head>
       <Header navItems={navItems}/>
-      <Hero title="Tapahtumakalenteri" height="30vh" />
+      <Hero title="Tapahtumakalenteri" />
       <article className="Page">
         <div className="ContentWrapper">
           <GoogleCalendar />

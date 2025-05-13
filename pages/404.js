@@ -12,7 +12,7 @@ const Custom404 = ({ navItems }) => {
         <title>404 | Delta ry</title>
       </Head>
       <Header navItems={navItems} />
-      <Hero title="404" height="30vh" />
+      <Hero title="404" />
       <article className="Page">
         <div className="Content">
         <h1>404</h1>

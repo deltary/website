@@ -17,7 +17,7 @@ const HomePage = ({ navItems, page }) => {
       </Head>
       <Header navItems={navItems} />
       <div className="ContentWrapper">
-        <Hero title={title} description={description} image={heroImage} height="100vh" />
+        <Hero title={title} description={description} image={heroImage} fullheight />
         <div className="FrontPage">
           <div className="info" dangerouslySetInnerHTML={{__html: content}} />
           <Calendar />

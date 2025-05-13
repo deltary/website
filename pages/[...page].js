@@ -12,7 +12,7 @@ const HomePage = ({ navItems, page }) => {
         <title>{title} | Delta ry</title>
       </Head> 
       <Header navItems={navItems}/>
-      <Hero title={title} image={heroImage} height="30vh" />
+      <Hero title={title} image={heroImage} />
       <article className="Page">
         <div className="Content" dangerouslySetInnerHTML={{__html: content}}></div>
       </article>
