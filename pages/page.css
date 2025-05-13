@@ -18,12 +18,7 @@ body {
 }
 
 .Page {
-  min-height: calc(100vh - var(--hero-height) - 250px);
-  
-  @media (min-width: 1743px), (min-screen-width: 1743px) {
-    min-height: calc(100vh - var(--hero-height) - 170px);
-  }
-
+  min-height: calc(100vh - var(--hero-height) - var(--footer-height));
   box-sizing: border-box;
   max-width: 100%;
   width: 900px;

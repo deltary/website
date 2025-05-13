@@ -1,3 +1,11 @@
+:root {
+  --footer-height: 250px;
+
+  @media (min-width: 1743px), (min-screen-width: 1743px) {
+    --footer-height: 170px;
+  }
+}
+
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -8,11 +16,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: var(--color-darker-purple);
-  height: 250px;
-
-  @media (min-width: 1743px), (min-screen-width: 1743px) {
-    height: 170px;
-  }
+  height: var(--footer-height);
 
   &.Footer-inverted {
     background-color: #fff;
