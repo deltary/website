@@ -4,7 +4,7 @@ import Brand from '../brand/brand';
 
 function Navigation({ isOpen, navItems, closeNav }) {
   return (
-    <div className={isOpen ? "MenuWrapper MenuWrapper--open" : "MenuWrapper"}>
+    <div className={isOpen ? "MenuWrapper open" : "MenuWrapper"}>
       <Brand isColorInverted={true} />
       <div className="Menu">
         {(navItems || []).map(category => (

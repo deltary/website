@@ -7,7 +7,7 @@ function Sponsors() {
       {/* TODO: fetch sponsors from WordPress */}
       <h1>Deltan tukena</h1>
 
-      <div className="Sponsors-logocontainer">
+      <div className="logocontainer">
         <a target="_blank" href="https://www.loimu.fi">
           <img src="logo-loimu.png" />
         </a>

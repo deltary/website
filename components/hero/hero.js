@@ -5,12 +5,12 @@ function Hero({ title, description, image, height }) {
   };
 
   const infoClass = height === '100vh'
-    ? 'Hero-info Hero-info--fullheight'
-    : 'Hero-info';
+    ? 'info fullheight'
+    : 'info';
 
   return (
     <div className="Hero" style={style}>
-      <div className="Hero-colorOverlay">
+      <div className="colorOverlay">
         <div className={infoClass}>
           <h1>{title}</h1>
           {description}

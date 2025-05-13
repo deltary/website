@@ -19,7 +19,7 @@ const HomePage = ({ navItems, page }) => {
       <div className="ContentWrapper">
         <Hero title={title} description={description} image={heroImage} height="100vh" />
         <div className="FrontPage">
-          <div className="FrontPage-info" dangerouslySetInnerHTML={{__html: content}} />
+          <div className="info" dangerouslySetInnerHTML={{__html: content}} />
           <Calendar />
         </div>
         <Sponsors />
