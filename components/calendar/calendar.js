@@ -6,37 +6,41 @@ import Link from 'next/link';
 
 const locale = { locale: fi };
 
-function Calendar() {
-  const [events, setEvents] = useState([]);
-  
-  useEffect(() => {
-    const callApi = async () => {
-      setEvents(await getUpComingEvents());
-    }
-    callApi();
-  }, []);
-
+function Calendar(staticEvents) {
+  if (typeof window === 'undefined') {
+    const events = staticEvents;
+  } else {
+    const [events, setEvents] = useState(staticEvents);
+    useEffect(() => {
+      const callApi = async () => {
+        setEvents(await getUpComingEvents());
+      };
+      callApi();
+    }, []);
+}
   return (
     <div className="Calendar">
       <h1>Tapahtumat</h1>
-      {events.length 
+      {events.length
       ? events.map(event => {
-        const formatRange = (start, end) => start + ' - ' + end;
+        const formatRange = (start, end) => start + ' – ' + end;
+        const start = new Date(event.start);
+        const end = new Date(event.end);
         const time = event.allDay
           ? event.multiDay
             ? formatRange(
-                format(event.start, "cccc, dd.MM.", locale),
-                format(event.end, "cccc, dd.MM.", locale)
+                format(start, "cccc, dd.MM.", locale),
+                format(end, "cccc, dd.MM.", locale)
               )
-            : format(event.start, "cccc, dd.MM.", locale)
+            : format(start, "cccc, dd.MM.", locale)
           : event.multiDay
             ? formatRange(
-                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
-                format(event.end, "cccc, dd.MM. 'kello' H:mm", locale)
+                format(start, "cccc, dd.MM. 'kello' H:mm", locale),
+                format(end, "cccc, dd.MM. 'kello' H:mm", locale)
               )
             : formatRange(
-                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
-                format(event.end, "H:mm", locale)
+                format(start, "cccc, dd.MM. 'kello' H:mm", locale),
+                format(end, "H:mm", locale)
               );
         return (
           <div className="CalendarEvent" key={event.title}>

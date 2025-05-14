@@ -36,7 +36,11 @@ function GoogleCalendar() {
         popup
         localizer={localizer}
         culture={'fi'}
-        events={events}
+        events={events.map((event) => ({
+          ...event,
+          start: new Date(event.start),
+          end: new Date(event.end),
+	}))}
         startAccessor="start"
         endAccessor="end"
         style={{height: 755}}
