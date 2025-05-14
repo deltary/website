@@ -17,11 +17,11 @@
     width: 300px;
     max-width: 90vw;
 
-    > p {
+    > time {
       margin: 4px 0;
     }
 
-    > h1 {
+    > .title {
       color: var(--color-darker-purple);
       font-size: 1.4rem;
       margin: 0;

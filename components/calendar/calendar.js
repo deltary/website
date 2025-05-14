@@ -1,47 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { getUpComingEvents } from '../../lib/calendarUtils';
-import { format } from 'date-fns';
-import { fi } from 'date-fns/locale';
 import Link from 'next/link';
 
-const locale = { locale: fi };
-
-function Calendar() {
-  const [events, setEvents] = useState([]);
-  
-  useEffect(() => {
-    const callApi = async () => {
-      setEvents(await getUpComingEvents());
-    }
-    callApi();
-  }, []);
-
+function Calendar({ staticEvents }) {
+  if (typeof window === 'undefined') {
+    var events = staticEvents;
+  } else {
+    var [events, setEvents] = useState(staticEvents);
+    useEffect(() => {
+      const callApi = async () => {
+        setEvents(await getUpComingEvents());
+      };
+      callApi();
+    }, []);
+}
   return (
     <div className="Calendar">
       <h1>Tapahtumat</h1>
-      {events.length 
+      {events.length
       ? events.map(event => {
-        const formatRange = (start, end) => start + ' - ' + end;
-        const time = event.allDay
-          ? event.multiDay
-            ? formatRange(
-                format(event.start, "cccc, dd.MM.", locale),
-                format(event.end, "cccc, dd.MM.", locale)
-              )
-            : format(event.start, "cccc, dd.MM.", locale)
-          : event.multiDay
-            ? formatRange(
-                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
-                format(event.end, "cccc, dd.MM. 'kello' H:mm", locale)
-              )
-            : formatRange(
-                format(event.start, "cccc, dd.MM. 'kello' H:mm", locale),
-                format(event.end, "H:mm", locale)
-              );
+        const format = new Intl.DateTimeFormat("fi-FI", {
+          weekday: "long",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          ...(!event.allDay && {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          timeZone: "Europe/Helsinki",
+        });
+        const start = new Date(event.start);
+        const end = new Date(event.end);
         return (
           <div className="CalendarEvent" key={event.title}>
-            <p>{time}</p>
-            <h1>{event.title}</h1>
+            <time>{format.formatRange(start, end)}</time>
+            <p className="title">{event.title}</p>
             <p>{event.location}</p>
           </div>
         );

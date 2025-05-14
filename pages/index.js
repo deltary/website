@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
 import { getNavigationItems, getIndexPage } from '../lib/wordpress';
+import { getUpComingEvents } from '../lib/calendarUtils.js';
 import { readJSON } from '../lib/fsUtils';
 
 // TODO: fetch dynamically from a WP custom field
 const description =
   "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys."
 
-const HomePage = ({ navItems, page }) => {
+const HomePage = ({ navItems, page, events }) => {
   const { title, content, heroImage } = page;
 
   return (
@@ -20,7 +21,7 @@ const HomePage = ({ navItems, page }) => {
         <Hero title={title} description={description} image={heroImage} fullheight />
         <div className="FrontPage">
           <div className="info" dangerouslySetInnerHTML={{__html: content}} />
-          <Calendar />
+          <Calendar staticEvents={events} />
         </div>
         <Sponsors />
       </div>
@@ -36,7 +37,8 @@ export async function getStaticProps() {
   return {
     props: {
       navItems: await getNavigationItems(navigation),
-      page: await getIndexPage(pages)
+      page: await getIndexPage(pages),
+      events: await getUpComingEvents()
     }
   };
 }
