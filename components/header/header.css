@@ -6,9 +6,8 @@ header {
   top: 0;
 
   .NavigationButton {
-    cursor: pointer;
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
     position: fixed;
     top: 0;
     right: 0;
@@ -21,10 +20,26 @@ header {
     @media (min-width: 600px), (min-screen-width: 600px) {
       margin: 3em;
     }
+
+    #nav-icon-open {
+      z-index: 100;
+      header:has(#nav:target) & {
+        z-index: -1;
+      }
+    }
+
+    #nav-icon-close {
+      z-index: -1;
+      header:has(#nav:target) & {
+        z-index: 100;
+      }
+    }
     
-    #nav-icon {
-      width: 45px;
-      height: 45px;
+    [id|=nav-icon] {
+      display: block;
+      position: absolute;
+      width: inherit;
+      height: inherit;
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -o-transform: rotate(0deg);
@@ -34,7 +49,7 @@ header {
       -o-transition: .2s ease-in-out;
       transition: .2s ease-in-out;
     
-      > span {
+      ~ span {
         border: 1.3px solid var(--color-purple);
 
         display: block;
@@ -54,44 +69,44 @@ header {
         -o-transition: .25s ease-in-out;
         transition: .25s ease-in-out;
 
-        &:nth-child(1) {
+        &:nth-child(3) {
           top: 0px;
         }
 
-        &:nth-child(2),&:nth-child(3) {
+        &:nth-child(4),&:nth-child(5) {
           top: 18px;
         }
 
-        &:nth-child(4) {
+        &:nth-child(6) {
           top: 36px;
         }
       }
 
-      &.open > span {
+      header:has(#nav:target) & ~ span {
         background-color: var(--color-purple);
         box-shadow: none;
 
-        &:nth-child(1) {
+        &:nth-child(3) {
           top: 18px;
           width: 0%;
           left: 50%;
         }
 
-        &:nth-child(2) {
+        &:nth-child(4) {
           -webkit-transform: rotate(45deg);
           -moz-transform: rotate(45deg);
           -o-transform: rotate(45deg);
           transform: rotate(45deg);
         }
 
-        &:nth-child(3) {
+        &:nth-child(5) {
           -webkit-transform: rotate(-45deg);
           -moz-transform: rotate(-45deg);
           -o-transform: rotate(-45deg);
           transform: rotate(-45deg);
         }
 
-        &:nth-child(4) {
+        &:nth-child(6) {
           top: 18px;
           width: 0%;
           left: 50%;
@@ -101,7 +116,7 @@ header {
   }
 }
 
-.MenuWrapper {
+#nav {
   display: none;
   position: fixed;
   top: 0;
@@ -121,7 +136,7 @@ header {
     overflow-y: scroll;
   }
 
-  &.open {
+  &:target {
     display: block;
   }
 

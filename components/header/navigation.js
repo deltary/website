@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 import Brand from '../brand/brand';
 
-function Navigation({ isOpen, navItems, closeNav }) {
+function Navigation({ navItems }) {
   return (
-    <div className={isOpen ? "MenuWrapper open" : "MenuWrapper"}>
+    <nav id="nav" className="MenuWrapper">
       <Brand isColorInverted={true} />
       <div className="Menu">
         {(navItems || []).map(category => (
@@ -12,13 +12,13 @@ function Navigation({ isOpen, navItems, closeNav }) {
             <h3>{category.title}</h3>
             <div className="Menu__contents">
               {category.items.map(subItem => (
-                <DynamicLink subItem={subItem} onClick={closeNav} key={subItem.title}/>
+                <DynamicLink subItem={subItem} key={subItem.title}/>
               ))}
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </nav>
   );
 }
 
