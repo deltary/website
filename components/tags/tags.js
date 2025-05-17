@@ -7,7 +7,6 @@ function Tags() {
       <title>Delta ry</title>
       <meta name="title" content="Delta ry" />
       <meta name="description" content="Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys Delta ry" />
-      <meta name="google-site-verification" content="fX3nwMLJdppvcaFwTnfvwRAldCOqC7ozG7OEfbBTJ6A" />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       <meta charSet="UTF-8" />
 
