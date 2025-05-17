@@ -1,19 +1,44 @@
-@import 'react-big-calendar/lib/css/react-big-calendar.css';
-
-.CalendarWrapper {
-  background-color: white;
-  color: var(--color-purple);
-  padding: 30px;
-  border-radius: 25px;
-
-  .rbc-event,
-  .rbc-event.rbc-event-selected,
-  .rbc-event {
-    background-color: var(--color-purple);
+#calendar table {
+  margin: 1.5em auto;
+  border-collapse: collapse;
+  --shade-of-purple: var(--color-purple);
+  :is(td, th):nth-child(7) {
+    --shade-of-purple: var(--color-dark-purple);
   }
-
-  .rbc-show-more {
-    color: var(--color-purple);
+  * {
+    color: var(--shade-of-purple);
+  }
+  caption {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+  td {
+    --tablecell-width: calc(min(12em, 12vw));
+    border: calc(min(5px, 0.5vw)) ridge var(--shade-of-purple);
+    min-width: var(--tablecell-width);
+    height: 5em;
+    padding: 0.5em calc(min(4px, 0.4vw));
+    text-align: center;
+    vertical-align: top;
+    > div {
+      max-width: var(--tablecell-width);
+      padding: 2px;
+      border-radius: 4px;
+      margin-top: 0.2em;
+      background: var(--shade-of-purple);
+      color: white;
+      overflow: hidden;
+      font-size: calc(min(1em, 2vw));
+      &:not(:hover) {
+        max-height: 5em;
+        &:not(:only-of-type) {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
   }
 }
-

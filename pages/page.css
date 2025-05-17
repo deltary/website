@@ -17,9 +17,11 @@ body {
   min-height: calc(100vh - var(--hero-height) - var(--footer-height));
   box-sizing: border-box;
   max-width: 100%;
-  width: 900px;
   margin: 0 auto;
   padding: 10px;
+  &:not(:has(> #calendar)) {
+    width: 900px;
+  }
   
   > .Content {
     font-family: 'Karla', sans-serif;
