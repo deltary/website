@@ -1,23 +1,12 @@
-import React from 'react';
-import { DynamicLink } from '../../lib/linkUtils';
-
-function Sponsors() {
-  return (
-    <div className="Sponsors">
-      {/* TODO: fetch sponsors from WordPress */}
-      <h1>Deltan tukena</h1>
-
-      <div className="logocontainer">
-        <a target="_blank" href="https://www.loimu.fi">
-          <img src="logo-loimu.png" />
-        </a>
-      </div>
-
-      <DynamicLink as="/yrityksille/yhteistyohon-deltan-kanssa">
-        <a>Yhteistyöhön Deltan kanssa?</a>
-      </DynamicLink>
-    </div>
-  );
-}
-
-export default Sponsors;
+/* TODO: fetch sponsors from WordPress */
+export const Sponsors = () => (
+`<div class="Sponsors">
+<h2>Deltan tukena</h2>
+<div class="logocontainer">
+<a target="_blank" href="https://www.loimu.fi">
+<img src="logo-loimu.png" alt="Loimu ry">
+</a>
+</div>
+<a href="/yrityksille/yhteistyohon-deltan-kanssa">Yhteistyöhön Deltan kanssa?</a>
+</div>`
+);

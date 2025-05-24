@@ -1,0 +1,17 @@
+stages:
+        - build
+        - deploy
+
+build-job:
+        stage: build
+        image: node:lts
+        script: nodejs index.js
+        artifacts:
+                paths: ["./public/"]
+
+deployment:
+        stage: deploy
+        image:
+                name: rclone/rclone:latest
+                entrypoint: [""]
+        script: rclone sync -v --config=$RCLONE_CONF --sftp-pass=`rclone obscure $FTP_PASSWORD` ./public/ remote:$FTP_DIRECTORY

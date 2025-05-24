@@ -191,22 +191,24 @@ header {
         display: flex;
         flex-direction: column;
         border-left: 2px solid var(--color-purple);
-        margin-left: 6px;
+        margin: 0 6px;
+        padding: 0;
       }
 
       .Menu__site {
-        color: #000;
-        text-decoration: none;
         font-size: 1.15rem;
         line-height: 1.7;
         margin-left: 1em;
+        list-style: none;
         @media (min-width: 670px), (min-screen-width: 670px) {
           line-height: 1.5;
         }
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
+        a {
+          color: #000;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

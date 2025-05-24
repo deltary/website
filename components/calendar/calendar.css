@@ -6,31 +6,24 @@
   justify-content: center;
   align-items: center;
   padding: 2em;
+  margin-bottom: 4em;
 
-  > h1 h3 {
+  dl {
+    max-width: 85%
+  }
+  dt {
+    &:not(:first-of-type) {
+      margin-top: 2em;
+    }
+    font-size: 1.4rem;
     color: var(--color-darker-purple);
+    margin-bottom: 0.4em;
   }
-
-  .CalendarEvent {
-    font-size: 1rem;
-    color: var(--color-purple);
-    width: 300px;
-    max-width: 90vw;
-
-    > time {
-      margin: 4px 0;
-    }
-
-    > .title {
-      color: var(--color-darker-purple);
-      font-size: 1.4rem;
-      margin: 0;
-    }
-
-    margin-bottom: 30px;
+  dd {
+    margin: 0 0 0.3em;
   }
-
   > a {
     color: var(--color-darker-purple);
+    margin-top: 2em;
   }
 }

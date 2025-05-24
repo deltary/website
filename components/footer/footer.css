@@ -58,6 +58,12 @@ footer {
       padding: 0.5em;
       width: 165px;
     }
+    svg {
+      max-width: 1.8rem;
+      max-height: 1.8rem;
+      margin: 0 0.5em;
+      fill: currentColor;
+    }
   }
 
   a {
@@ -70,8 +76,5 @@ footer {
       color: var(--color-pink);
     }
 
-    > svg {
-      margin: 0 0.5em;
-    }
   }
 }

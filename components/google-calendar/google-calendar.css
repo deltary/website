@@ -39,6 +39,14 @@
           text-overflow: ellipsis;
         }
       }
+      &:hover {
+        hyphens: auto;
+        &::after {
+          content: attr(title);
+          display: block;
+          margin-top: 0.3em;
+        }
+      }
     }
   }
 }
