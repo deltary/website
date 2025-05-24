@@ -7,6 +7,10 @@
   padding-top: 1em;
   padding-bottom: 3em;
 
+  h2 {
+    font-size: 2em;
+  }
+
   .logocontainer {
     display: flex;
     margin-bottom: 1em;

@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
-
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Karla', sans-serif;
-  box-sizing: border-box;
-}
-
 header {
   /* FIXME: this breaks all pages except index. */
   position: absolute;
@@ -25,6 +16,14 @@ header {
     flex-wrap: nowrap;
   }
 
+  h1, h2 {
+    font-size: 2em;
+    margin-top: 0em;
+    &:has(+ p) {
+      margin-bottom: 0em;
+    }
+}
+
   .info {
     background-color: var(--color-darker-purple);
     display: flex;
@@ -32,10 +31,6 @@ header {
     justify-content: center;
     align-items: center;
     padding: 2em;
-
-    > h1 {
-      margin-bottom: 0em;
-    }
 
     > p {
       line-height: 1.4;

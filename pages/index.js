@@ -1,46 +1,28 @@
-import Head from 'next/head';
-import { Header, Hero, Footer, Calendar, Sponsors } from '../components';
-import { getNavigationItems, getIndexPage } from '../lib/wordpress';
-import { getUpComingEvents } from '../lib/calendarUtils.js';
-import { readJSON } from '../lib/fsUtils';
+import { getUpComingEvents } from '../lib/calendarUtils.js'
+import { Document } from './document.js';
+import { Node } from '../lib/DOMPolyfill.js';
+import { renderCalendar } from '../components/calendar/calendar.js';
 
 // TODO: fetch dynamically from a WP custom field
 const description =
-  "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys."
+  "Delta ry on Turun yliopiston matemaattisten ja fysikaalisten tieteiden opiskelijoiden yhdistys.";
 
-const HomePage = ({ navItems, page, events }) => {
-  const { title, content, heroImage } = page;
-
-  return (
-    <>
-      <Head>
-        <title>Delta ry</title>
-      </Head>
-      <Header navItems={navItems} />
-      <div className="ContentWrapper">
-        <Hero title={title} description={description} image={heroImage} fullheight />
-        <div className="FrontPage">
-          <div className="info" dangerouslySetInnerHTML={{__html: content}} />
-          <Calendar staticEvents={events} />
-        </div>
-        <Sponsors />
-      </div>
-      <Footer invertColors={true} />
-    </>
-  );
-}
-
-export async function getStaticProps() {
-  const pages = readJSON('pages.json');
-  const navigation = readJSON('navitems.json');
-
-  return {
-    props: {
-      navItems: await getNavigationItems(navigation),
-      page: await getIndexPage(pages),
-      events: await getUpComingEvents()
-    }
-  };
-}
-
-export default HomePage;
+export const FrontPage = (page, navItems) => getUpComingEvents().then((events) => Document({
+	...page,
+	link: "index.html",
+	title: "Etusivu",
+	navigation: navItems,
+	hero: { ...page.hero, title: page.title, description, fullheight: true },
+	main: { className: "FrontPage" },
+	footer: { invertColors: true, sponsors: true },
+	script: (
+`import { calendarBuilder } from './components/calendar/calendar.js';
+window.onload = calendarBuilder();`
+	),
+	content: (
+`<div class="info">
+${page.content}
+</div>
+${renderCalendar(events, new Node()).outerHTML}`
+),
+}));

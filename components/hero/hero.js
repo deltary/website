@@ -1,20 +1,11 @@
-function Hero({ title, description, image, fullheight }) {
-  const infoClass = fullheight
-    ? 'info fullheight'
-    : 'info';
-
-  return (
-    <div className="Hero" style={
-      image ? { backgroundImage: `url(${image})` } : {}
-    }>
-      <div className="colorOverlay">
-        <div className={infoClass}>
-          <h1>{title}</h1>
-          {description}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default Hero;
+export const Hero = async ({ image, fullheight, title, description = "" }) => (
+`<div class="Hero"
+${image ? `style="background-image: url(${await image})"` : ""}>
+<div class="colorOverlay">
+<div class="info ${fullheight ? "fullheight" : ""}">
+<h1>${title}</h1>
+${description}
+</div>
+</div>
+</div>`
+);
